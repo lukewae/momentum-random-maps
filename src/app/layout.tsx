@@ -13,9 +13,20 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Momentum Mod Map Roulette | What Map Should I Play?',
-  description: 'Pick a random Momentum Mod map instantly with mode filters, difficulty tiers, console command copies, and a full speedrun map archive.',
-  keywords: ['Momentum Mod', 'Random Map', 'Speedrun', 'Surf', 'Bhop', 'KZ', 'Rocket Jump', 'Sticky Jump', 'Ahop'],
+  title: 'Momentum Mod Map Roulette',
+  description:
+    'Pick a random Momentum Mod map instantly with mode filters, difficulty tiers, console command copies, and a full speedrun map archive.',
+  keywords: [
+    'Momentum Mod',
+    'Random Map',
+    'Speedrun',
+    'Surf',
+    'Bhop',
+    'KZ',
+    'Rocket Jump',
+    'Sticky Jump',
+    'Ahop',
+  ],
 };
 
 export default function RootLayout({
@@ -25,7 +36,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} dark`}>
-      <body className="antialiased min-h-screen bg-[#050609] text-slate-100">
+      <body className="antialiased min-h-screen bg-[#0a0a0a] text-neutral-100">
         {children}
       </body>
     </html>
