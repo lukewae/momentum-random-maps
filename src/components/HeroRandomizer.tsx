@@ -443,8 +443,8 @@ ${mapListText || '  (None)'}`;
                 </span>
               </button>
 
-              {/* Status Counter */}
-              <div className="flex items-center justify-between sm:justify-start gap-3 text-xs font-mono text-neutral-400 px-4 py-4 bg-[#111111] border border-neutral-800 whitespace-nowrap">
+              {/* Status Counter (Locked Width) */}
+              <div className="w-full sm:w-64 flex-shrink-0 flex items-center justify-between sm:justify-center gap-3 text-xs font-mono text-neutral-400 px-4 py-4 bg-[#111111] border border-neutral-800 tabular-nums">
                 <div>
                   <span className="text-white font-semibold">{filteredPoolCount.toLocaleString()}</span> maps in pool
                 </div>

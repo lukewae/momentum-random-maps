@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Volume2, VolumeX, ExternalLink, Disc } from 'lucide-react';
+import { Volume2, VolumeX, ExternalLink } from 'lucide-react';
 import { soundFx } from '@/lib/audio';
 
 interface HeaderProps {
@@ -23,18 +23,11 @@ export function Header({ totalMaps }: HeaderProps) {
   return (
     <header className="border-b border-neutral-800 bg-[#0a0a0a] sticky top-0 z-30 px-4 sm:px-6 lg:px-8 py-3.5">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        {/* Brand */}
-        <div className="flex items-center gap-3">
-          <div className="w-8 h-8 flex items-center justify-center bg-neutral-900 border border-neutral-700 text-white">
-            <Disc className="w-4 h-4" />
-          </div>
-          <div>
-            <div className="flex items-center gap-2">
-              <h1 className="text-sm sm:text-base font-bold tracking-tight text-white font-mono uppercase">
-                Momentum Mod <span className="text-neutral-400 font-normal">/ Map Picker</span>
-              </h1>
-            </div>
-          </div>
+        {/* Brand Text Only */}
+        <div>
+          <h1 className="text-sm sm:text-base font-bold tracking-tight text-white font-mono uppercase">
+            Momentum Mod <span className="text-neutral-400 font-normal">/ Map Picker</span>
+          </h1>
         </div>
 
         {/* Header Right Actions */}
