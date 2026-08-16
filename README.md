@@ -1,15 +1,15 @@
 # Momentum Mod Random Map Picker
 
-A fast, responsive, and minimalist web application for the Momentum Mod speedrunning community answering the question: **"What Momentum map should I play?"**
+A fast, minimalist web app for the Momentum Mod speedrunning community.
 
 ## Features
 
-- **Random Map Picker**: Instant map selector with roulette rolling animations, keyboard shortcuts (`Space` / `R`), and console launch command copy (`map <mapname>`).
-- **Multi-Mode Filter**: Filter random rolls and map lists across any combination of game modes (*Surf*, *Bhop*, *KZ*, *Rocket Jump*, *Sticky Jump*, *Ahop*, *Parkour*, *Conc*, *Defrag*).
-- **Dual-Handle Tier Range Drag Slider**: Precision filtering from Tier 1 to Tier 10 with clickable tick marks.
-- **Timed Challenge (Speedrun Rush Mode)**: Track how many maps you can beat in 15, 30, 45, or 60 minutes with a live countdown clock, score tracker, and copyable run summary.
-- **100% Standalone & Offline**: Over 1,100+ Momentum Mod maps stored locally in `src/data/maps.json` with zero runtime scraping or database requirements.
-- **Map Rescan CLI**: Built-in script to fetch and update maps directly from Momentum Mod's public API.
+- **Random Map Picker** — Randomly selects maps with roulette animation, keyboard shortcuts, and copyable launch commands.
+- **Game Mode Filters** — Filter maps by Surf, Bhop, KZ, Rocket Jump, Sticky Jump, Ahop, Parkour, Conc, or Defrag.
+- **Tier Filter** — Filter maps from Tier 1–10 with a drag slider.
+- **Speedrun Rush** — Timed challenges for 15, 30, 45, or 60 minutes with a timer, score, and run summary.
+- **Offline** — 1,100+ maps stored locally with no database or runtime scraping.
+- **Map Rescan CLI** — Update the map list using Momentum Mod’s public API.
 
 ## Getting Started
 
