@@ -317,7 +317,7 @@ export function HeroRandomizer({
     setTimeout(() => setCopiedConsole(false), 2000);
   };
 
-  const copyMapNameOnly = (mapName: string) => {
+  const copyMapName = (mapName: string) => {
     navigator.clipboard.writeText(mapName);
     soundFx.playCopySound();
     setCopiedName(true);
@@ -887,7 +887,7 @@ ${mapListText || '  (None)'}`;
               <div className="flex flex-col gap-1.5">
                 <div className="flex items-center gap-2">
                   <h2
-                    onClick={() => copyMapNameOnly(activeDisplayItem.displayName)}
+                    onClick={() => copyMapName(activeDisplayItem.displayName)}
                     title="Click to copy name"
                     className="text-2xl sm:text-4xl md:text-5xl font-bold font-mono tracking-tight text-white hover:text-neutral-300 transition-colors cursor-pointer flex items-center gap-2"
                   >
@@ -970,7 +970,7 @@ ${mapListText || '  (None)'}`;
                 <p>{activeMap.description}</p>
               ) : (
                 <p className="text-neutral-500">
-                  Ready to play. Use the console command to launch directly in Momentum Mod.
+                  Ready to play. Copy the map name to search and download in-game.
                 </p>
               )}
             </div>
@@ -978,28 +978,38 @@ ${mapListText || '  (None)'}`;
             {/* Action Buttons */}
             <div className="flex flex-wrap items-center gap-2 w-full md:w-auto">
               
-              {/* Copy Console Command */}
+              {/* Copy Map Name Button */}
               <button
-                onClick={() => copyConsoleCommand(activeMap.name, selectedBonusNum)}
+                onClick={() => copyMapName(activeMap.name)}
                 className={`flex-1 sm:flex-initial flex items-center justify-center gap-2 px-4 py-2 text-xs font-mono font-bold tracking-wide transition-colors cursor-pointer border ${
-                  copiedConsole
+                  copiedName
                     ? 'bg-white text-black border-white'
                     : 'bg-neutral-900 hover:bg-neutral-800 text-white border-neutral-700 hover:border-neutral-500'
                 }`}
-                title="Copy launch command to clipboard"
+                title="Copy map name to paste in-game"
               >
-                {copiedConsole ? (
+                {copiedName ? (
                   <>
                     <Check className="w-3.5 h-3.5" />
-                    <span>COPIED `map {activeMap.name}`</span>
+                    <span>COPIED `{activeMap.name}`</span>
                   </>
                 ) : (
                   <>
-                    <Terminal className="w-3.5 h-3.5 text-neutral-400" />
-                    <span>COPY COMMAND (`map {activeMap.name}`)</span>
+                    <Copy className="w-3.5 h-3.5 text-neutral-400" />
+                    <span>COPY MAP NAME (`{activeMap.name}`)</span>
                   </>
                 )}
               </button>
+
+              {/* Open in Momentum (Steam Protocol) */}
+              <a
+                href={`steam://run/669270//+map%20${activeMap.name}`}
+                className="flex items-center justify-center gap-1.5 px-3 py-2 bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 hover:border-neutral-500 text-xs font-mono text-neutral-300 hover:text-white transition-colors"
+                title="Launch directly in Momentum Mod if map is already installed"
+              >
+                <Terminal className="w-3 h-3 text-neutral-400" />
+                <span>Open in Game</span>
+              </a>
 
               {/* View Dashboard */}
               <a
