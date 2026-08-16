@@ -47,30 +47,31 @@ interface ApiMapItem {
 const GAMEMODE_NAMES: Record<number, string> = {
   1: 'Surf',
   2: 'Bhop',
-  3: 'KZ',
-  4: 'Rocket Jump',
-  5: 'Sticky Jump',
-  6: 'Ahop',
-  7: 'Parkour',
-  8: 'Conc',
-  9: 'Defrag',
-  10: 'Tricks',
+  3: 'Tricks',
+  5: 'KZT',
+  6: '1.6 KZ',
+  7: 'Rocket Jump',
+  8: 'Sticky Jump',
+  9: 'Ahop',
+  10: 'Conc',
+  11: 'Defrag',
+  12: 'Bhop',
+  13: 'Defrag',
 };
 
 function inferGamemode(name: string, apiGamemode?: number): string {
+  const lower = name.toLowerCase();
+  if (lower.startsWith('rj_') || lower.startsWith('jump_')) return 'Rocket Jump';
+  if (lower.startsWith('sj_')) return 'Sticky Jump';
+  if (lower.startsWith('conc_') || lower.startsWith('pipe_')) return 'Conc';
+  if (lower.startsWith('df_') || lower.startsWith('cpm')) return 'Defrag';
+  if (lower.startsWith('ahop_')) return 'Ahop';
   if (apiGamemode && GAMEMODE_NAMES[apiGamemode]) {
     return GAMEMODE_NAMES[apiGamemode];
   }
-  const lower = name.toLowerCase();
   if (lower.startsWith('surf_')) return 'Surf';
   if (lower.startsWith('bhop_')) return 'Bhop';
-  if (lower.startsWith('kz_') || lower.startsWith('xc_') || lower.startsWith('bkz_') || lower.startsWith('kzpro_')) return 'KZ';
-  if (lower.startsWith('rj_') || lower.startsWith('jump_')) return 'Rocket Jump';
-  if (lower.startsWith('sj_')) return 'Sticky Jump';
-  if (lower.startsWith('ahop_')) return 'Ahop';
-  if (lower.startsWith('pk_') || lower.startsWith('tr_')) return 'Parkour';
-  if (lower.startsWith('conc_')) return 'Conc';
-  if (lower.startsWith('df_') || lower.startsWith('cpm')) return 'Defrag';
+  if (lower.startsWith('kz_') || lower.startsWith('xc_') || lower.startsWith('bkz_')) return '1.6 KZ';
   return 'Other';
 }
 
@@ -96,7 +97,7 @@ export interface CleanMap {
 }
 
 async function syncMaps() {
-  console.log('🚀 Starting Momentum Mod map sync with Bonus tracks & Ranked flags...');
+  console.log('🚀 Starting Momentum Mod map sync with accurate Gamemode IDs (1.6 KZ, KZT, Rocket Jump)...');
   const baseUrl = 'https://api.momentum-mod.org/v1/maps';
   const take = 100;
   let skip = 0;
@@ -126,7 +127,9 @@ async function syncMaps() {
 
       for (const item of data) {
         const primaryLb =
-          item.leaderboards?.find((l) => l.trackType === 0 && l.trackNum === 1 && l.tier != null) ||
+          item.leaderboards?.find((l) => l.trackType === 0 && l.type === 0 && l.tier != null) ||
+          item.leaderboards?.find((l) => l.trackType === 0 && l.type === 0) ||
+          item.leaderboards?.find((l) => l.trackType === 0 && l.tier != null) ||
           item.leaderboards?.find((l) => l.trackType === 0) ||
           item.leaderboards?.[0];
 
@@ -142,7 +145,6 @@ async function syncMaps() {
           for (const lb of item.leaderboards) {
             if (lb.trackType === 2 && lb.trackNum > 0) {
               const existing = bonusMap.get(lb.trackNum);
-              // Prefer bonus record matching the primary gamemode or with non-null tier
               if (!existing || (existing.tier == null && lb.tier != null)) {
                 bonusMap.set(lb.trackNum, {
                   bonusNum: lb.trackNum,
@@ -210,7 +212,7 @@ async function syncMaps() {
 
   const outPath = path.join(dataDir, 'maps.json');
   fs.writeFileSync(outPath, JSON.stringify(allMaps, null, 2), 'utf-8');
-  console.log(`💾 Saved updated map database with bonuses to: ${outPath}`);
+  console.log(`💾 Saved updated map database to: ${outPath}`);
 }
 
 syncMaps().catch((err) => {

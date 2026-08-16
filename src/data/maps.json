@@ -858,7 +858,7 @@
   {
     "id": 2048,
     "name": "conc_xnm",
-    "gamemode": "Tricks",
+    "gamemode": "Conc",
     "tier": 5,
     "authors": [
       "Madcow",
@@ -949,7 +949,7 @@
   {
     "id": 2035,
     "name": "conc_xsor",
-    "gamemode": "Tricks",
+    "gamemode": "Conc",
     "tier": 5,
     "authors": [
       "Madcow",
@@ -1125,7 +1125,7 @@
     "id": 2004,
     "name": "conc_compact",
     "gamemode": "Conc",
-    "tier": 2,
+    "tier": 3,
     "authors": [
       "CaladiumX",
       "Madcow",
@@ -1466,7 +1466,7 @@
   {
     "id": 1980,
     "name": "sj_shallows",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 5,
     "authors": [
       "Kolo",
@@ -2135,7 +2135,7 @@
   {
     "id": 1907,
     "name": "sj_industry",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 5,
     "authors": [
       "ShadowOfLight",
@@ -2348,7 +2348,7 @@
   {
     "id": 1870,
     "name": "conc_hybrid",
-    "gamemode": "Tricks",
+    "gamemode": "Conc",
     "tier": 2,
     "authors": [
       "Reni",
@@ -2438,7 +2438,7 @@
   {
     "id": 1864,
     "name": "kz_tutorial_beginner",
-    "gamemode": "Ahop",
+    "gamemode": "1.6 KZ",
     "tier": 2,
     "authors": [
       "Keita"
@@ -2540,7 +2540,7 @@
   {
     "id": 1859,
     "name": "kz_secret_temple",
-    "gamemode": "Ahop",
+    "gamemode": "1.6 KZ",
     "tier": 4,
     "authors": [
       "o74769"
@@ -2556,7 +2556,7 @@
   {
     "id": 1853,
     "name": "kz_nuclear",
-    "gamemode": "Sticky Jump",
+    "gamemode": "KZT",
     "tier": 2,
     "authors": [
       "tatska",
@@ -2600,7 +2600,7 @@
   {
     "id": 1842,
     "name": "kz_nassau",
-    "gamemode": "Sticky Jump",
+    "gamemode": "KZT",
     "tier": 2,
     "authors": [
       "Chichin",
@@ -2758,7 +2758,7 @@
   {
     "id": 1828,
     "name": "rj_ambition",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 4,
     "authors": [
       "tev",
@@ -3116,7 +3116,7 @@
   {
     "id": 1770,
     "name": "rj_sudaca",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 3,
     "authors": [
       "shogi",
@@ -3230,7 +3230,7 @@
   {
     "id": 1763,
     "name": "kz_cheetos",
-    "gamemode": "Sticky Jump",
+    "gamemode": "KZT",
     "tier": 1,
     "authors": [
       "pe",
@@ -3530,7 +3530,7 @@
   {
     "id": 1732,
     "name": "rj_pandemonium_redo",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 5,
     "authors": [
       "Shunix -tt"
@@ -3546,7 +3546,7 @@
   {
     "id": 1730,
     "name": "rj_munchkin",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 3,
     "authors": [
       "washed up",
@@ -3646,7 +3646,7 @@
   {
     "id": 1714,
     "name": "rj_repente2",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 5,
     "authors": [
       "Finn91",
@@ -3897,8 +3897,8 @@
   {
     "id": 1669,
     "name": "kz_stronghold",
-    "gamemode": "Sticky Jump",
-    "tier": 3,
+    "gamemode": "1.6 KZ",
+    "tier": 4,
     "authors": [
       "o74769"
     ],
@@ -4139,7 +4139,7 @@
   {
     "id": 1646,
     "name": "kz_experiment",
-    "gamemode": "Sticky Jump",
+    "gamemode": "KZT",
     "tier": 2,
     "authors": [
       "TheWhaleMan"
@@ -4280,8 +4280,8 @@
   {
     "id": 1626,
     "name": "kz_persia",
-    "gamemode": "Defrag",
-    "tier": 2,
+    "gamemode": "1.6 KZ",
+    "tier": 3,
     "authors": [
       "o74769",
       "Plajer",
@@ -4323,7 +4323,7 @@
     "id": 1616,
     "name": "pipe_thisifyoucan",
     "gamemode": "Conc",
-    "tier": 4,
+    "tier": 8,
     "authors": [
       "Spaz",
       "Zike",
@@ -4400,7 +4400,7 @@
   {
     "id": 1608,
     "name": "kz_luv_less",
-    "gamemode": "Sticky Jump",
+    "gamemode": "KZT",
     "tier": 4,
     "authors": [
       "j3wdice",
@@ -4417,7 +4417,7 @@
   {
     "id": 1607,
     "name": "kz_haste",
-    "gamemode": "Sticky Jump",
+    "gamemode": "KZT",
     "tier": 4,
     "authors": [
       "rov",
@@ -4446,7 +4446,7 @@
   {
     "id": 1604,
     "name": "kz_conifer",
-    "gamemode": "Sticky Jump",
+    "gamemode": "KZT",
     "tier": 1,
     "authors": [
       "GameChaos",
@@ -4465,7 +4465,7 @@
   {
     "id": 1603,
     "name": "kz_comboya",
-    "gamemode": "Sticky Jump",
+    "gamemode": "KZT",
     "tier": 2,
     "authors": [
       "xq"
@@ -4481,7 +4481,7 @@
   {
     "id": 1601,
     "name": "kz_antiquity",
-    "gamemode": "Sticky Jump",
+    "gamemode": "KZT",
     "tier": 2,
     "authors": [
       "GameChaos",
@@ -4843,7 +4843,7 @@
   {
     "id": 1581,
     "name": "kz_gfy_final",
-    "gamemode": "Sticky Jump",
+    "gamemode": "KZT",
     "tier": 4,
     "authors": [
       "winterNebs"
@@ -5188,7 +5188,7 @@
   {
     "id": 1556,
     "name": "sj_glassydev",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 4,
     "authors": [
       "wickEd_"
@@ -5215,7 +5215,7 @@
   {
     "id": 1555,
     "name": "sj_rat",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 5,
     "authors": [
       "hexaflexahexagon"
@@ -5287,7 +5287,7 @@
   {
     "id": 1539,
     "name": "kz_mz",
-    "gamemode": "Sticky Jump",
+    "gamemode": "KZT",
     "tier": 1,
     "authors": [
       "nykaN",
@@ -5400,7 +5400,7 @@
   {
     "id": 1522,
     "name": "kz_dakow",
-    "gamemode": "Sticky Jump",
+    "gamemode": "KZT",
     "tier": 1,
     "authors": [
       "xq",
@@ -5472,7 +5472,7 @@
   {
     "id": 1506,
     "name": "kz_twiivo",
-    "gamemode": "Sticky Jump",
+    "gamemode": "KZT",
     "tier": 2,
     "authors": [
       "xq",
@@ -5751,7 +5751,7 @@
   {
     "id": 1482,
     "name": "kz_lust",
-    "gamemode": "Sticky Jump",
+    "gamemode": "KZT",
     "tier": 2,
     "authors": [
       "Birgit"
@@ -5963,7 +5963,7 @@
   {
     "id": 1476,
     "name": "kz_mess",
-    "gamemode": "Sticky Jump",
+    "gamemode": "KZT",
     "tier": 5,
     "authors": [
       "Temmie",
@@ -5980,7 +5980,7 @@
   {
     "id": 1472,
     "name": "rj_sylvestres",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 1,
     "authors": [
       "Exile",
@@ -5997,7 +5997,7 @@
   {
     "id": 1469,
     "name": "kz_hemochromatosis",
-    "gamemode": "Sticky Jump",
+    "gamemode": "KZT",
     "tier": 6,
     "authors": [
       "rov",
@@ -6024,7 +6024,7 @@
   {
     "id": 1467,
     "name": "rj_rocky",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 4,
     "authors": [
       "Maxx",
@@ -6053,7 +6053,7 @@
     "id": 1464,
     "name": "quad_rox",
     "gamemode": "Conc",
-    "tier": 4,
+    "tier": 6,
     "authors": [
       "kNuCkleS",
       "Zike"
@@ -6069,7 +6069,7 @@
   {
     "id": 1462,
     "name": "kz_oloramasa",
-    "gamemode": "Sticky Jump",
+    "gamemode": "KZT",
     "tier": 6,
     "authors": [
       "alves",
@@ -6107,7 +6107,7 @@
   {
     "id": 1457,
     "name": "sj_galaktikon",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 2,
     "authors": [
       "hexaflexahexagon",
@@ -6212,7 +6212,7 @@
   {
     "id": 1436,
     "name": "kz_kzinga",
-    "gamemode": "Sticky Jump",
+    "gamemode": "KZT",
     "tier": 3,
     "authors": [
       "finckelton"
@@ -6228,7 +6228,7 @@
   {
     "id": 1435,
     "name": "kz_eros",
-    "gamemode": "Sticky Jump",
+    "gamemode": "KZT",
     "tier": 1,
     "authors": [
       "finckelton",
@@ -6275,7 +6275,7 @@
   {
     "id": 1429,
     "name": "sj_carp",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 2,
     "authors": [
       "hexaflexahexagon"
@@ -6302,7 +6302,7 @@
   {
     "id": 1428,
     "name": "rj_zawty",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 4,
     "authors": [
       "ｼElandi!! -fwo"
@@ -6318,7 +6318,7 @@
   {
     "id": 1427,
     "name": "rj_escape",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 5,
     "authors": [
       "Hass",
@@ -6354,7 +6354,7 @@
   {
     "id": 1424,
     "name": "kz_11342",
-    "gamemode": "Sticky Jump",
+    "gamemode": "KZT",
     "tier": 1,
     "authors": [
       "Joe of Gaming",
@@ -6378,7 +6378,7 @@
   {
     "id": 1421,
     "name": "kz_climb_beginner_2",
-    "gamemode": "Sticky Jump",
+    "gamemode": "KZT",
     "tier": 1,
     "authors": [
       "kolokola777",
@@ -6448,7 +6448,7 @@
   {
     "id": 1416,
     "name": "kz_slidemap",
-    "gamemode": "Sticky Jump",
+    "gamemode": "KZT",
     "tier": 6,
     "authors": [
       "Samuel",
@@ -6528,7 +6528,7 @@
   {
     "id": 1405,
     "name": "quad_esad3",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 4,
     "authors": [
       "Trojan",
@@ -6550,7 +6550,7 @@
   {
     "id": 1404,
     "name": "rj_bounce",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 3,
     "authors": [
       "bshear"
@@ -6671,7 +6671,7 @@
   {
     "id": 1377,
     "name": "kz_ccn_make",
-    "gamemode": "Ahop",
+    "gamemode": "1.6 KZ",
     "tier": 6,
     "authors": [
       "Chichin",
@@ -6690,7 +6690,7 @@
   {
     "id": 1370,
     "name": "rj_ursprung",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 4,
     "authors": [
       "tev",
@@ -6877,7 +6877,7 @@
   {
     "id": 1358,
     "name": "sj_internal",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 2,
     "authors": [
       "sitood",
@@ -6942,7 +6942,7 @@
   {
     "id": 1353,
     "name": "sj_anothermap",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 2,
     "authors": [
       "hexaflexahexagon",
@@ -6961,7 +6961,7 @@
   {
     "id": 1351,
     "name": "quad_esad4",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 4,
     "authors": [
       "Trojan",
@@ -6982,7 +6982,7 @@
   {
     "id": 1350,
     "name": "quad_esad",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 4,
     "authors": [
       "Trojan",
@@ -7053,7 +7053,7 @@
   {
     "id": 1340,
     "name": "rj_ahh",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 1,
     "authors": [
       "ｼElandi!! -fwo",
@@ -7074,7 +7074,7 @@
   {
     "id": 1339,
     "name": "rj_pastel",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 1,
     "authors": [
       "False_",
@@ -7395,7 +7395,7 @@
     "id": 1321,
     "name": "quad_catastrophe",
     "gamemode": "Conc",
-    "tier": 4,
+    "tier": 6,
     "authors": [
       "Madcow",
       "Zike",
@@ -7415,7 +7415,7 @@
   {
     "id": 1320,
     "name": "quad_adam2",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 4,
     "authors": [
       "Adam-g1",
@@ -7632,7 +7632,7 @@
     "id": 1314,
     "name": "quad_rocket4",
     "gamemode": "Conc",
-    "tier": 3,
+    "tier": 5,
     "authors": [
       "Koochy",
       "Zike",
@@ -7687,7 +7687,7 @@
     "id": 1310,
     "name": "conc_acrimony",
     "gamemode": "Conc",
-    "tier": 4,
+    "tier": 6,
     "authors": [
       "Totoro",
       "Zike",
@@ -8094,7 +8094,7 @@
   {
     "id": 1296,
     "name": "kz_fastmap",
-    "gamemode": "Sticky Jump",
+    "gamemode": "KZT",
     "tier": 1,
     "authors": [
       "Samuel",
@@ -8111,7 +8111,7 @@
   {
     "id": 1295,
     "name": "kz_baxter",
-    "gamemode": "Sticky Jump",
+    "gamemode": "KZT",
     "tier": 1,
     "authors": [
       "Samuel",
@@ -8405,7 +8405,7 @@
   {
     "id": 1276,
     "name": "conc_ascend",
-    "gamemode": "Tricks",
+    "gamemode": "Conc",
     "tier": 1,
     "authors": [
       "Nooral",
@@ -9031,7 +9031,7 @@
   {
     "id": 1252,
     "name": "sj_ouryoku",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 3,
     "authors": [
       "Syro",
@@ -9492,7 +9492,7 @@
   {
     "id": 1234,
     "name": "sj_oraci",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 7,
     "authors": [
       "Kolo",
@@ -10212,7 +10212,7 @@
   {
     "id": 1183,
     "name": "rj_ember",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 4,
     "authors": [
       "maxxy"
@@ -10376,7 +10376,7 @@
   {
     "id": 1172,
     "name": "conc_xca",
-    "gamemode": "Tricks",
+    "gamemode": "Conc",
     "tier": 5,
     "authors": [
       "Tyrant",
@@ -10539,7 +10539,7 @@
   {
     "id": 1164,
     "name": "quad_ancient",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 4,
     "authors": [
       "Gnu!",
@@ -10635,7 +10635,7 @@
   {
     "id": 1152,
     "name": "sj_rewind",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 2,
     "authors": [
       "Sere"
@@ -10667,7 +10667,7 @@
   {
     "id": 1148,
     "name": "rj_kinetics",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 3,
     "authors": [
       "Sere",
@@ -10800,7 +10800,7 @@
   {
     "id": 1139,
     "name": "sj_desa",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 4,
     "authors": [
       "Sere"
@@ -10864,7 +10864,7 @@
   {
     "id": 1137,
     "name": "sj_cloe",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 6,
     "authors": [
       "Sere",
@@ -10914,7 +10914,7 @@
   {
     "id": 1136,
     "name": "conc_dreamysheg",
-    "gamemode": "Tricks",
+    "gamemode": "Conc",
     "tier": 3,
     "authors": [
       "Sere",
@@ -11006,7 +11006,7 @@
   {
     "id": 1131,
     "name": "sj_hulk",
-    "gamemode": "Parkour",
+    "gamemode": "Sticky Jump",
     "tier": 3,
     "authors": [
       "the hulk66",
@@ -11061,7 +11061,7 @@
   {
     "id": 1124,
     "name": "rj_nepal",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 1,
     "authors": [
       "Sere",
@@ -11082,7 +11082,7 @@
   {
     "id": 1119,
     "name": "kz_bhop_avantura",
-    "gamemode": "KZ",
+    "gamemode": "Tricks",
     "tier": 1,
     "authors": [
       "kolokola777",
@@ -11163,7 +11163,7 @@
   {
     "id": 1113,
     "name": "conc_asagi",
-    "gamemode": "Tricks",
+    "gamemode": "Conc",
     "tier": 3,
     "authors": [
       "katz",
@@ -11248,7 +11248,7 @@
   {
     "id": 1107,
     "name": "sj_witches",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 3,
     "authors": [
       "Kolo",
@@ -11369,7 +11369,7 @@
   {
     "id": 1098,
     "name": "sj_booyah",
-    "gamemode": "Parkour",
+    "gamemode": "Sticky Jump",
     "tier": 2,
     "authors": [
       "wild"
@@ -11385,7 +11385,7 @@
   {
     "id": 1097,
     "name": "sj_authn",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 3,
     "authors": [
       "hexaflexahexagon"
@@ -11407,7 +11407,7 @@
   {
     "id": 1096,
     "name": "rj_infernum",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 4,
     "authors": [
       "Finn91",
@@ -11588,7 +11588,7 @@
   {
     "id": 1083,
     "name": "sj_shapes",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 2,
     "authors": [
       "hexaflexahexagon",
@@ -11613,7 +11613,7 @@
   {
     "id": 1082,
     "name": "rj_ayers",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 2,
     "authors": [
       "Raiin",
@@ -11645,7 +11645,7 @@
   {
     "id": 1081,
     "name": "sj_karelia",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 2,
     "authors": [
       "Pants",
@@ -11664,7 +11664,7 @@
   {
     "id": 1080,
     "name": "rj_chasm",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 4,
     "authors": [
       "Donuttt",
@@ -11681,7 +11681,7 @@
   {
     "id": 1079,
     "name": "rj_concrete",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 2,
     "authors": [
       "tyjle"
@@ -11789,7 +11789,7 @@
   {
     "id": 1074,
     "name": "rj_pants",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 5,
     "authors": [
       "Pants",
@@ -11823,7 +11823,7 @@
   {
     "id": 1072,
     "name": "rj_sdm",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 4,
     "authors": [
       "wickEd_"
@@ -11850,7 +11850,7 @@
   {
     "id": 1071,
     "name": "rj_deep",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 4,
     "authors": [
       "shogi",
@@ -11879,7 +11879,7 @@
   {
     "id": 1070,
     "name": "sj_arugula",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 4,
     "authors": [
       "Torii"
@@ -11895,7 +11895,7 @@
   {
     "id": 1068,
     "name": "rj_break",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 3,
     "authors": [
       "Anathon"
@@ -11911,7 +11911,7 @@
   {
     "id": 1067,
     "name": "rj_steel",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 3,
     "authors": [
       "Ancient Grandpa"
@@ -11927,7 +11927,7 @@
   {
     "id": 1066,
     "name": "rj_yggdrasil",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 6,
     "authors": [
       "Starkie",
@@ -12013,7 +12013,7 @@
   {
     "id": 1063,
     "name": "rj_umon",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 5,
     "authors": [
       "Zyphon",
@@ -12119,7 +12119,7 @@
   {
     "id": 1059,
     "name": "rj_arcane",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 4,
     "authors": [
       "Hass",
@@ -12143,7 +12143,7 @@
   {
     "id": 1058,
     "name": "rj_pharaoh",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 5,
     "authors": [
       "Shunix -tt"
@@ -12171,7 +12171,7 @@
     "id": 1057,
     "name": "conc_od2",
     "gamemode": "Conc",
-    "tier": 3,
+    "tier": 5,
     "authors": [
       "Pizza Supreme",
       "Zike",
@@ -12194,7 +12194,7 @@
   {
     "id": 1055,
     "name": "rj_linear",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 1,
     "authors": [
       "uNKnown",
@@ -12216,7 +12216,7 @@
   {
     "id": 1053,
     "name": "rj_jynkky",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 6,
     "authors": [
       "Snowblind2",
@@ -12260,7 +12260,7 @@
   {
     "id": 1051,
     "name": "rj_panama",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 2,
     "authors": [
       "Miagui"
@@ -12287,7 +12287,7 @@
   {
     "id": 1049,
     "name": "rj_doom",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 2,
     "authors": [
       "ronv45",
@@ -12314,8 +12314,8 @@
   {
     "id": 1048,
     "name": "sj_junior",
-    "gamemode": "Parkour",
-    "tier": 1,
+    "gamemode": "Sticky Jump",
+    "tier": 3,
     "authors": [
       "kjr.",
       "5cheeseburgers"
@@ -12532,7 +12532,7 @@
   {
     "id": 1038,
     "name": "rj_sync",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 6,
     "authors": [
       "QuBA"
@@ -12623,7 +12623,7 @@
   {
     "id": 1032,
     "name": "rj_midnight",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 5,
     "authors": [
       "Snowblind2",
@@ -12791,7 +12791,7 @@
   {
     "id": 1024,
     "name": "rj_neurotwister",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 5,
     "authors": [
       "axios",
@@ -12867,7 +12867,7 @@
   {
     "id": 1019,
     "name": "rj_vulc",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 5,
     "authors": [
       "Torii"
@@ -12883,7 +12883,7 @@
   {
     "id": 1015,
     "name": "rj_wald",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 6,
     "authors": [
       "lambchop",
@@ -12929,7 +12929,7 @@
   {
     "id": 1014,
     "name": "rj_reverentia",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 4,
     "authors": [
       "Finn91",
@@ -12957,7 +12957,7 @@
   {
     "id": 1013,
     "name": "rj_waltz",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 3,
     "authors": [
       "Anathon",
@@ -12992,7 +12992,7 @@
   {
     "id": 1010,
     "name": "rj_desolate",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 4,
     "authors": [
       "TopHATTwaffle",
@@ -13097,7 +13097,7 @@
   {
     "id": 1002,
     "name": "conc_tenebrescence",
-    "gamemode": "Tricks",
+    "gamemode": "Conc",
     "tier": 5,
     "authors": [
       "Kolo",
@@ -13728,7 +13728,7 @@
   {
     "id": 968,
     "name": "sj_embrace",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 2,
     "authors": [
       "Afterglow",
@@ -13868,7 +13868,7 @@
   {
     "id": 962,
     "name": "sj_termywermy",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 3,
     "authors": [
       "Afterglow",
@@ -14236,7 +14236,7 @@
   {
     "id": 932,
     "name": "rj_echelon",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 5,
     "authors": [
       "Umaroth-24",
@@ -14440,7 +14440,7 @@
   {
     "id": 923,
     "name": "df_new2defrag",
-    "gamemode": "Bhop",
+    "gamemode": "Defrag",
     "tier": 1,
     "authors": [
       "Ekstertje",
@@ -14509,7 +14509,7 @@
   {
     "id": 918,
     "name": "rj_obelisk",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 4,
     "authors": [
       "Pants"
@@ -14545,7 +14545,7 @@
   {
     "id": 915,
     "name": "rj_yona",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 4,
     "authors": [
       "toss"
@@ -15081,7 +15081,7 @@
     "id": 886,
     "name": "conc_tyrant2_qr",
     "gamemode": "Conc",
-    "tier": 3,
+    "tier": 4,
     "authors": [
       "Tyrant",
       "Zike"
@@ -15119,7 +15119,7 @@
     "id": 884,
     "name": "conc_tyrant_qr",
     "gamemode": "Conc",
-    "tier": 3,
+    "tier": 5,
     "authors": [
       "Tyrant",
       "Zike",
@@ -15184,7 +15184,7 @@
     "id": 880,
     "name": "conc_xmt",
     "gamemode": "Conc",
-    "tier": 5,
+    "tier": 6,
     "authors": [
       "Tyrant",
       "Zike",
@@ -15205,7 +15205,7 @@
     "id": 879,
     "name": "conc_xbr",
     "gamemode": "Conc",
-    "tier": 4,
+    "tier": 5,
     "authors": [
       "Tyrant",
       "Zike",
@@ -15229,7 +15229,7 @@
     "id": 878,
     "name": "conc_wubsworld",
     "gamemode": "Conc",
-    "tier": 3,
+    "tier": 5,
     "authors": [
       "wubber",
       "Zike"
@@ -15262,7 +15262,7 @@
   {
     "id": 876,
     "name": "conc_totobro_plus",
-    "gamemode": "Tricks",
+    "gamemode": "Conc",
     "tier": 6,
     "authors": [
       "TKG",
@@ -15308,7 +15308,7 @@
     "id": 874,
     "name": "conc_rome",
     "gamemode": "Conc",
-    "tier": 3,
+    "tier": 1,
     "authors": [
       "WoodRuff",
       "Zike",
@@ -15326,7 +15326,7 @@
     "id": 873,
     "name": "conc_pga",
     "gamemode": "Conc",
-    "tier": 4,
+    "tier": 5,
     "authors": [
       "graffix",
       "Zike"
@@ -15449,7 +15449,7 @@
     "id": 868,
     "name": "conc_groove2",
     "gamemode": "Conc",
-    "tier": 4,
+    "tier": 3,
     "authors": [
       "Sand le Youkoulaylay",
       "Zike",
@@ -15516,7 +15516,7 @@
     "id": 865,
     "name": "conc_fly",
     "gamemode": "Conc",
-    "tier": 3,
+    "tier": 2,
     "authors": [
       "xan",
       "Donald",
@@ -15544,7 +15544,7 @@
     "id": 864,
     "name": "conc_fluffy",
     "gamemode": "Conc",
-    "tier": 2,
+    "tier": 1,
     "authors": [
       "SmAlLFlUfFyBuNnYs",
       "lord HAM corportation",
@@ -15675,7 +15675,7 @@
     "id": 859,
     "name": "conc_eze",
     "gamemode": "Conc",
-    "tier": 3,
+    "tier": 1,
     "authors": [
       "[ConC]Renegade",
       "Zike",
@@ -15734,8 +15734,8 @@
   {
     "id": 857,
     "name": "conc_course",
-    "gamemode": "Parkour",
-    "tier": 3,
+    "gamemode": "Conc",
+    "tier": 1,
     "authors": [
       "stino",
       "Zike"
@@ -15804,7 +15804,7 @@
     "id": 853,
     "name": "conc_baal",
     "gamemode": "Conc",
-    "tier": 4,
+    "tier": 6,
     "authors": [
       "VoiD",
       "Zike",
@@ -15903,7 +15903,7 @@
   {
     "id": 848,
     "name": "rj_liwiuglbool",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 3,
     "authors": [
       "Kozen",
@@ -16100,7 +16100,7 @@
   {
     "id": 837,
     "name": "rj_ionizer",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 7,
     "authors": [
       "Seere",
@@ -16131,7 +16131,7 @@
   {
     "id": 835,
     "name": "rj_gaylord2",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 7,
     "authors": [
       "vice",
@@ -16515,7 +16515,7 @@
   {
     "id": 816,
     "name": "sj_stress",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 4,
     "authors": [
       "Syro",
@@ -16585,7 +16585,7 @@
   {
     "id": 811,
     "name": "rj_redplanet",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 3,
     "authors": [
       "mouse*",
@@ -16636,7 +16636,7 @@
   {
     "id": 806,
     "name": "conc_orde",
-    "gamemode": "Tricks",
+    "gamemode": "Conc",
     "tier": 4,
     "authors": [
       "wubber",
@@ -16847,7 +16847,7 @@
   {
     "id": 792,
     "name": "rj_murus",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 8,
     "authors": [
       "MrHappyCamper",
@@ -16972,7 +16972,7 @@
   {
     "id": 782,
     "name": "rj_pokus",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 4,
     "authors": [
       "porkie",
@@ -17045,7 +17045,7 @@
   {
     "id": 777,
     "name": "rj_grotto",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 3,
     "authors": [
       "False_",
@@ -17085,7 +17085,7 @@
   {
     "id": 770,
     "name": "sj_providence",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 3,
     "authors": [
       "False_",
@@ -17104,7 +17104,7 @@
   {
     "id": 769,
     "name": "sj_jasmine",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 5,
     "authors": [
       "Freyja",
@@ -17129,7 +17129,7 @@
   {
     "id": 768,
     "name": "sj_rapunzel",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 5,
     "authors": [
       "False_",
@@ -17152,7 +17152,7 @@
   {
     "id": 766,
     "name": "conc_speed",
-    "gamemode": "Tricks",
+    "gamemode": "Conc",
     "tier": 1,
     "authors": [
       "Koochy"
@@ -17185,7 +17185,7 @@
   {
     "id": 763,
     "name": "sj_hydrogen",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 3,
     "authors": [
       "879m"
@@ -17201,7 +17201,7 @@
   {
     "id": 762,
     "name": "sj_cake",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 3,
     "authors": [
       "weeeeeÒ.ó"
@@ -17413,7 +17413,7 @@
   {
     "id": 745,
     "name": "sj_sylvan",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 4,
     "authors": [
       "Scotch",
@@ -18027,7 +18027,7 @@
   {
     "id": 708,
     "name": "rj_wagyu",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 1,
     "authors": [
       "CaWU",
@@ -18117,7 +18117,7 @@
   {
     "id": 697,
     "name": "agtricks",
-    "gamemode": "Bhop",
+    "gamemode": "Tricks",
     "tier": 2,
     "authors": [
       "Unknown Author",
@@ -18159,7 +18159,7 @@
   {
     "id": 691,
     "name": "rj_undergrowth",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 3,
     "authors": [
       "seras"
@@ -18241,8 +18241,8 @@
   {
     "id": 687,
     "name": "df_molendinum",
-    "gamemode": "Bhop",
-    "tier": 3,
+    "gamemode": "Defrag",
+    "tier": 2,
     "authors": [
       "eat veggies"
     ],
@@ -18328,7 +18328,7 @@
   {
     "id": 683,
     "name": "sj_drexen",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 3,
     "authors": [
       "Drexen"
@@ -18419,7 +18419,7 @@
   {
     "id": 677,
     "name": "rj_echo",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 5,
     "authors": [
       "plep",
@@ -18574,7 +18574,7 @@
   {
     "id": 668,
     "name": "bhop_bunnyrace",
-    "gamemode": "KZ",
+    "gamemode": "Tricks",
     "tier": 1,
     "authors": [
       "Vibrion"
@@ -18641,7 +18641,7 @@
   {
     "id": 660,
     "name": "sj_nova",
-    "gamemode": "Parkour",
+    "gamemode": "Sticky Jump",
     "tier": 1,
     "authors": [
       "Katzen"
@@ -18742,7 +18742,7 @@
   {
     "id": 655,
     "name": "ahop_drift",
-    "gamemode": "Defrag",
+    "gamemode": "Ahop",
     "tier": 3,
     "authors": [
       "ｼElandi!! -fwo"
@@ -18813,7 +18813,7 @@
   {
     "id": 652,
     "name": "ahop_velocity",
-    "gamemode": "Defrag",
+    "gamemode": "Ahop",
     "tier": 2,
     "authors": [
       "Buggajayjay ツ",
@@ -18864,7 +18864,7 @@
   {
     "id": 643,
     "name": "sj_weekly",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 3,
     "authors": [
       "Mohr",
@@ -18882,8 +18882,8 @@
   {
     "id": 642,
     "name": "sj_synapse",
-    "gamemode": "Parkour",
-    "tier": 3,
+    "gamemode": "Sticky Jump",
+    "tier": 4,
     "authors": [
       "Gorge004",
       "Mohr"
@@ -18920,7 +18920,7 @@
   {
     "id": 641,
     "name": "sj_puni",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 2,
     "authors": [
       "Rah Mie"
@@ -18947,7 +18947,7 @@
   {
     "id": 640,
     "name": "rj_lombardi",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 3,
     "authors": [
       "False_",
@@ -18975,7 +18975,7 @@
   {
     "id": 639,
     "name": "rj_impact",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 1,
     "authors": [
       "Drexen",
@@ -18992,7 +18992,7 @@
   {
     "id": 638,
     "name": "sj_karb",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 3,
     "authors": [
       "Karabengles"
@@ -19019,7 +19019,7 @@
   {
     "id": 636,
     "name": "rj_straight",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 3,
     "authors": [
       "Tusic76",
@@ -19036,7 +19036,7 @@
   {
     "id": 634,
     "name": "rj_nysel",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 4,
     "authors": [
       "Lonely",
@@ -19067,7 +19067,7 @@
   {
     "id": 633,
     "name": "rj_yump",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 3,
     "authors": [
       "HOI"
@@ -19094,7 +19094,7 @@
   {
     "id": 632,
     "name": "rj_quattro",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 2,
     "authors": [
       "Minty",
@@ -19127,7 +19127,7 @@
   {
     "id": 631,
     "name": "rj_aura",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 2,
     "authors": [
       "Ltfx"
@@ -19248,7 +19248,7 @@
   {
     "id": 627,
     "name": "sj_vice",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 3,
     "authors": [
       "newjuls",
@@ -19280,7 +19280,7 @@
   {
     "id": 625,
     "name": "rj_nefarious",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 6,
     "authors": [
       "sgt Bytheway",
@@ -19321,7 +19321,7 @@
   {
     "id": 624,
     "name": "rj_attached",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 6,
     "authors": [
       "Dr Gains"
@@ -19438,7 +19438,7 @@
   {
     "id": 620,
     "name": "rj_twix",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 2,
     "authors": [
       "Adestix",
@@ -19545,7 +19545,7 @@
   {
     "id": 616,
     "name": "rj_underworld_v2",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 3,
     "authors": [
       "sitood"
@@ -19814,7 +19814,7 @@
   {
     "id": 608,
     "name": "rj_byhicrine",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 3,
     "authors": [
       "Patrick",
@@ -19831,7 +19831,7 @@
   {
     "id": 602,
     "name": "conc_ginnungagap",
-    "gamemode": "Tricks",
+    "gamemode": "Conc",
     "tier": 1,
     "authors": [
       "Nooral",
@@ -19861,7 +19861,7 @@
   {
     "id": 601,
     "name": "sj_triplepre",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 3,
     "authors": [
       "dipp"
@@ -19893,7 +19893,7 @@
   {
     "id": 599,
     "name": "sj_around",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 3,
     "authors": [
       "CrancK"
@@ -19991,7 +19991,7 @@
   {
     "id": 597,
     "name": "sj_primary",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 2,
     "authors": [
       "newjuls",
@@ -20067,7 +20067,7 @@
   {
     "id": 595,
     "name": "sj_rust",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 2,
     "authors": [
       "swbm",
@@ -20088,7 +20088,7 @@
   {
     "id": 594,
     "name": "sj_signal",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 2,
     "authors": [
       "consition"
@@ -20115,7 +20115,7 @@
   {
     "id": 593,
     "name": "sj_impulse",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 4,
     "authors": [
       "False_",
@@ -20140,7 +20140,7 @@
   {
     "id": 592,
     "name": "sj_evac",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 4,
     "authors": [
       "newjuls",
@@ -20157,7 +20157,7 @@
   {
     "id": 591,
     "name": "rj_tshirt",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 2,
     "authors": [
       "kimami"
@@ -20173,7 +20173,7 @@
   {
     "id": 590,
     "name": "sj_eleven",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 2,
     "authors": [
       "reero"
@@ -20189,7 +20189,7 @@
   {
     "id": 589,
     "name": "sj_miner",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 2,
     "authors": [
       "hexaflexahexagon",
@@ -20231,7 +20231,7 @@
   {
     "id": 588,
     "name": "sj_ideation",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 1,
     "authors": [
       "hexaflexahexagon"
@@ -20247,7 +20247,7 @@
   {
     "id": 587,
     "name": "rj_rapture",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 3,
     "authors": [
       "˄˅Gebobus -tt",
@@ -20267,7 +20267,7 @@
   {
     "id": 586,
     "name": "rj_above",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 3,
     "authors": [
       "sitood"
@@ -20289,7 +20289,7 @@
   {
     "id": 585,
     "name": "rj_fauvism",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 6,
     "authors": [
       "akiot",
@@ -20310,7 +20310,7 @@
   {
     "id": 583,
     "name": "sj_grape",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 4,
     "authors": [
       "Shunix -tt",
@@ -20330,7 +20330,7 @@
   {
     "id": 582,
     "name": "rj_shunix",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 3,
     "authors": [
       "Ancient Grandpa",
@@ -20350,7 +20350,7 @@
   {
     "id": 581,
     "name": "rj_rainbowroad",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 2,
     "authors": [
       "Kozen",
@@ -20381,7 +20381,7 @@
   {
     "id": 580,
     "name": "sj_future",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 1,
     "authors": [
       "Owlruler",
@@ -20398,7 +20398,7 @@
   {
     "id": 579,
     "name": "sj_ring2",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 3,
     "authors": [
       "RING",
@@ -20453,7 +20453,7 @@
   {
     "id": 578,
     "name": "rj_typh",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 3,
     "authors": [
       "John"
@@ -20475,7 +20475,7 @@
   {
     "id": 577,
     "name": "sj_aten",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 4,
     "authors": [
       "A10"
@@ -20491,7 +20491,7 @@
   {
     "id": 576,
     "name": "sj_koi",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 3,
     "authors": [
       "tkoi"
@@ -20513,7 +20513,7 @@
   {
     "id": 575,
     "name": "rj_sauciix",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 3,
     "authors": [
       "Reyviix"
@@ -20535,7 +20535,7 @@
   {
     "id": 574,
     "name": "rj_pandemonium",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 6,
     "authors": [
       "iTac",
@@ -20555,7 +20555,7 @@
   {
     "id": 573,
     "name": "sj_quickers",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 2,
     "authors": [
       "uNKnown"
@@ -20774,7 +20774,7 @@
   {
     "id": 565,
     "name": "rj_oretachi",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 3,
     "authors": [
       "Kendrick🌽"
@@ -20828,7 +20828,7 @@
   {
     "id": 561,
     "name": "sj_zero",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 2,
     "authors": [
       "Drexen"
@@ -20844,7 +20844,7 @@
   {
     "id": 560,
     "name": "sj_shelter",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 1,
     "authors": [
       "sitood"
@@ -20916,7 +20916,7 @@
   {
     "id": 556,
     "name": "rj_negative",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 4,
     "authors": [
       "Shunix -tt",
@@ -21030,7 +21030,7 @@
   {
     "id": 550,
     "name": "rj_gaylord",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 6,
     "authors": [
       "Ze Ubermensch"
@@ -21057,7 +21057,7 @@
   {
     "id": 548,
     "name": "rj_nebuchadnezzar",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 5,
     "authors": [
       "toss",
@@ -21074,7 +21074,7 @@
   {
     "id": 547,
     "name": "sj_pine",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 3,
     "authors": [
       "˄˅Gebobus -tt"
@@ -21090,7 +21090,7 @@
   {
     "id": 544,
     "name": "sj_carrot",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 6,
     "authors": [
       "Torii"
@@ -21198,7 +21198,7 @@
   {
     "id": 538,
     "name": "rj_destination_v2",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 3,
     "authors": [
       "sitood"
@@ -21220,7 +21220,7 @@
   {
     "id": 537,
     "name": "rj_confiote",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 4,
     "authors": [
       "ronv45",
@@ -21252,7 +21252,7 @@
   {
     "id": 536,
     "name": "rj_inimica",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 4,
     "authors": [
       "ixam",
@@ -21332,7 +21332,7 @@
   {
     "id": 533,
     "name": "sj_contact",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 3,
     "authors": [
       "Timmy Tissue"
@@ -21348,7 +21348,7 @@
   {
     "id": 532,
     "name": "df_f1o_m1",
-    "gamemode": "Bhop",
+    "gamemode": "Defrag",
     "tier": 1,
     "authors": [
       "f1o"
@@ -21380,7 +21380,7 @@
   {
     "id": 528,
     "name": "df_tenuous",
-    "gamemode": "Bhop",
+    "gamemode": "Defrag",
     "tier": 1,
     "authors": [
       "stammer"
@@ -21396,7 +21396,7 @@
   {
     "id": 527,
     "name": "rj_recall",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 5,
     "authors": [
       "plep",
@@ -21419,7 +21419,7 @@
   {
     "id": 526,
     "name": "rj_proto",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 3,
     "authors": [
       "John",
@@ -21436,7 +21436,7 @@
   {
     "id": 525,
     "name": "sj_mireal2",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 6,
     "authors": [
       "Sere",
@@ -21494,7 +21494,7 @@
   {
     "id": 524,
     "name": "sj_mireal",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 6,
     "authors": [
       "Sere",
@@ -21526,7 +21526,7 @@
   {
     "id": 523,
     "name": "rj_stella",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 5,
     "authors": [
       "Torii"
@@ -21558,7 +21558,7 @@
   {
     "id": 520,
     "name": "df_rek-dire",
-    "gamemode": "Bhop",
+    "gamemode": "Defrag",
     "tier": 1,
     "authors": [
       "rekk0r"
@@ -21574,7 +21574,7 @@
   {
     "id": 517,
     "name": "df_hgb-nye2",
-    "gamemode": "Bhop",
+    "gamemode": "Defrag",
     "tier": 1,
     "authors": [
       "halvorgb"
@@ -21590,7 +21590,7 @@
   {
     "id": 513,
     "name": "df_kool_m2",
-    "gamemode": "Bhop",
+    "gamemode": "Defrag",
     "tier": 1,
     "authors": [
       "Kool-Aid"
@@ -21640,7 +21640,7 @@
   {
     "id": 510,
     "name": "df_ghost-strafe7",
-    "gamemode": "Bhop",
+    "gamemode": "Defrag",
     "tier": 1,
     "authors": [
       "Ghost"
@@ -21656,7 +21656,7 @@
   {
     "id": 509,
     "name": "df_hgb-tofu",
-    "gamemode": "Bhop",
+    "gamemode": "Defrag",
     "tier": 1,
     "authors": [
       "cmc",
@@ -21680,7 +21680,7 @@
   {
     "id": 506,
     "name": "sj_amazon",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 2,
     "authors": [
       "obsidiian"
@@ -21712,7 +21712,7 @@
   {
     "id": 504,
     "name": "rj_lathy",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 4,
     "authors": [
       "sitood"
@@ -21744,7 +21744,7 @@
   {
     "id": 503,
     "name": "df_kool_ub",
-    "gamemode": "Bhop",
+    "gamemode": "Defrag",
     "tier": 1,
     "authors": [
       "Kool-Aid"
@@ -21862,7 +21862,7 @@
   {
     "id": 495,
     "name": "rj_manitou",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 4,
     "authors": [
       "Malecus",
@@ -21879,7 +21879,7 @@
   {
     "id": 484,
     "name": "rj_sven",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 5,
     "authors": [
       "Karatekaefer",
@@ -21909,7 +21909,7 @@
   {
     "id": 482,
     "name": "rj_canyon",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 2,
     "authors": [
       "Pants",
@@ -21926,7 +21926,7 @@
   {
     "id": 481,
     "name": "rj_mowi",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 2,
     "authors": [
       "False_",
@@ -21944,7 +21944,7 @@
   {
     "id": 480,
     "name": "df_nood-adr",
-    "gamemode": "Bhop",
+    "gamemode": "Defrag",
     "tier": 1,
     "authors": [
       "noodles"
@@ -21971,7 +21971,7 @@
   {
     "id": 474,
     "name": "df_nood-charon",
-    "gamemode": "Bhop",
+    "gamemode": "Defrag",
     "tier": 1,
     "authors": [
       "noodles"
@@ -21987,7 +21987,7 @@
   {
     "id": 473,
     "name": "rj_rope",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 3,
     "authors": [
       "nolem",
@@ -22016,7 +22016,7 @@
   {
     "id": 472,
     "name": "sj_speed2",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 2,
     "authors": [
       "Steve-nC-"
@@ -22032,7 +22032,7 @@
   {
     "id": 471,
     "name": "sj_speed",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 2,
     "authors": [
       "Aznbob"
@@ -22054,7 +22054,7 @@
   {
     "id": 470,
     "name": "sj_tissue",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 3,
     "authors": [
       "Timmy Tissue"
@@ -22070,7 +22070,7 @@
   {
     "id": 468,
     "name": "rj_mirage",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 4,
     "authors": [
       "Malecus"
@@ -22092,7 +22092,7 @@
   {
     "id": 467,
     "name": "rj_aridia",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 3,
     "authors": [
       "Drexen",
@@ -22113,7 +22113,7 @@
   {
     "id": 464,
     "name": "rj_aqua",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 3,
     "authors": [
       "200"
@@ -22258,7 +22258,7 @@
   {
     "id": 459,
     "name": "rj_edgebug",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 5,
     "authors": [
       "11",
@@ -22304,7 +22304,7 @@
   {
     "id": 458,
     "name": "sj_jabroni",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 8,
     "authors": [
       "vov&sons",
@@ -22367,7 +22367,7 @@
   {
     "id": 454,
     "name": "rj_junk",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 3,
     "authors": [
       "RING",
@@ -22409,7 +22409,7 @@
   {
     "id": 453,
     "name": "sj_armature",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 4,
     "authors": [
       "newjuls",
@@ -22523,7 +22523,7 @@
   {
     "id": 449,
     "name": "rj_temple",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 6,
     "authors": [
       "Scotch",
@@ -22553,7 +22553,7 @@
   {
     "id": 448,
     "name": "sj_devils",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 3,
     "authors": [
       "Raiin"
@@ -22585,7 +22585,7 @@
   {
     "id": 447,
     "name": "ahop_stop",
-    "gamemode": "Defrag",
+    "gamemode": "Ahop",
     "tier": 3,
     "authors": [
       "Dacciox"
@@ -22638,7 +22638,7 @@
   {
     "id": 445,
     "name": "sj_aznbob",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 3,
     "authors": [
       "Aznbob",
@@ -22663,7 +22663,7 @@
   {
     "id": 444,
     "name": "sj_data",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 3,
     "authors": [
       "newjuls",
@@ -22696,7 +22696,7 @@
   {
     "id": 443,
     "name": "sj_matty",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 2,
     "authors": [
       "newjuls",
@@ -22730,7 +22730,7 @@
   {
     "id": 442,
     "name": "sj_khoa",
-    "gamemode": "Parkour",
+    "gamemode": "Sticky Jump",
     "tier": 3,
     "authors": [
       "Bob+M|M+"
@@ -22806,7 +22806,7 @@
   {
     "id": 440,
     "name": "rj_biolab",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 4,
     "authors": [
       "ronv45",
@@ -23043,7 +23043,7 @@
   {
     "id": 435,
     "name": "sj_sonni",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 5,
     "authors": [
       "pena"
@@ -23065,7 +23065,7 @@
   {
     "id": 434,
     "name": "sj_zilent",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 6,
     "authors": [
       "osplo",
@@ -23091,7 +23091,7 @@
   {
     "id": 433,
     "name": "rj_pow",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 5,
     "authors": [
       "riotbz",
@@ -23217,7 +23217,7 @@
   {
     "id": 424,
     "name": "sj_legocroc",
-    "gamemode": "Tricks",
+    "gamemode": "Sticky Jump",
     "tier": 1,
     "authors": [
       "kjr.",
@@ -23255,7 +23255,7 @@
   {
     "id": 423,
     "name": "rj_sketchy2",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 3,
     "authors": [
       "sitood"
@@ -23282,8 +23282,8 @@
   {
     "id": 422,
     "name": "sj_sketchy",
-    "gamemode": "Parkour",
-    "tier": 3,
+    "gamemode": "Sticky Jump",
+    "tier": 2,
     "authors": [
       "sitood"
     ],
@@ -23309,7 +23309,7 @@
   {
     "id": 419,
     "name": "rj_factory",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 3,
     "authors": [
       "ronv45"
@@ -23421,7 +23421,7 @@
   {
     "id": 411,
     "name": "conc_submerge",
-    "gamemode": "Tricks",
+    "gamemode": "Conc",
     "tier": 4,
     "authors": [
       "Kanin",
@@ -23445,7 +23445,7 @@
   {
     "id": 410,
     "name": "rj_pump",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 3,
     "authors": [
       "mikers"
@@ -23482,7 +23482,7 @@
   {
     "id": 409,
     "name": "conc_revive",
-    "gamemode": "Tricks",
+    "gamemode": "Conc",
     "tier": 3,
     "authors": [
       "Kanin",
@@ -23618,7 +23618,7 @@
   {
     "id": 403,
     "name": "rj_beyond",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 1,
     "authors": [
       "sitood"
@@ -23634,7 +23634,7 @@
   {
     "id": 402,
     "name": "rj_orbital",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 1,
     "authors": [
       "Hajnal"
@@ -23945,7 +23945,7 @@
   {
     "id": 381,
     "name": "bhop_kz_concrete_jungle",
-    "gamemode": "Sticky Jump",
+    "gamemode": "KZT",
     "tier": 1,
     "authors": [
       "kilavila"
@@ -24283,7 +24283,7 @@
   {
     "id": 353,
     "name": "rj_oddie",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 5,
     "authors": [
       "ｼElandi!! -fwo"
@@ -24299,7 +24299,7 @@
   {
     "id": 352,
     "name": "rj_babylon",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 3,
     "authors": [
       "Malecus"
@@ -24315,7 +24315,7 @@
   {
     "id": 351,
     "name": "sj_vanished",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 6,
     "authors": [
       "Rbt",
@@ -24398,7 +24398,7 @@
   {
     "id": 346,
     "name": "sj_hardware",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 5,
     "authors": [
       "False_"
@@ -24414,7 +24414,7 @@
   {
     "id": 345,
     "name": "rj_steinbruch",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 6,
     "authors": [
       "Hass",
@@ -24471,7 +24471,7 @@
   {
     "id": 340,
     "name": "sj_timtam",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 5,
     "authors": [
       "osplo",
@@ -24504,7 +24504,7 @@
   {
     "id": 339,
     "name": "rj_ozone",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 3,
     "authors": [
       "Shogi"
@@ -24520,7 +24520,7 @@
   {
     "id": 337,
     "name": "sj_software",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 4,
     "authors": [
       "False_"
@@ -24536,7 +24536,7 @@
   {
     "id": 335,
     "name": "conc_drive2",
-    "gamemode": "Tricks",
+    "gamemode": "Conc",
     "tier": 1,
     "authors": [
       "Myst^vi #Point of Impact",
@@ -24604,7 +24604,7 @@
   {
     "id": 328,
     "name": "sj_bane",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 6,
     "authors": [
       "wild"
@@ -24631,7 +24631,7 @@
   {
     "id": 326,
     "name": "rj_sitood",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 3,
     "authors": [
       "sitood"
@@ -24825,7 +24825,7 @@
   {
     "id": 316,
     "name": "rj_apex",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 4,
     "authors": [
       "obsidiian"
@@ -24863,7 +24863,7 @@
   {
     "id": 314,
     "name": "rj_vex",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 4,
     "authors": [
       "Balls"
@@ -24907,7 +24907,7 @@
   {
     "id": 311,
     "name": "sj_garbage",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 3,
     "authors": [
       "Katzen"
@@ -25044,7 +25044,7 @@
   {
     "id": 303,
     "name": "sj_artificial",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 5,
     "authors": [
       "Katzen"
@@ -25081,8 +25081,8 @@
   {
     "id": 302,
     "name": "sj_kjr",
-    "gamemode": "Parkour",
-    "tier": 3,
+    "gamemode": "Sticky Jump",
+    "tier": 2,
     "authors": [
       "kjr.",
       "Natanxp2",
@@ -25117,7 +25117,7 @@
   {
     "id": 300,
     "name": "rj_elephant",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 2,
     "authors": [
       "Oatmeal"
@@ -25133,7 +25133,7 @@
   {
     "id": 299,
     "name": "rj_cow",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 1,
     "authors": [
       "HOI"
@@ -25189,7 +25189,7 @@
   {
     "id": 296,
     "name": "sj_haze",
-    "gamemode": "Parkour",
+    "gamemode": "Sticky Jump",
     "tier": 1,
     "authors": [
       "wild",
@@ -25259,7 +25259,7 @@
     "id": 294,
     "name": "df_timcon9-2",
     "gamemode": "Defrag",
-    "tier": 3,
+    "tier": 2,
     "authors": [
       "ZeeL"
     ],
@@ -25305,7 +25305,7 @@
   {
     "id": 291,
     "name": "rj_home",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 2,
     "authors": [
       "sitood"
@@ -25867,7 +25867,7 @@
   {
     "id": 264,
     "name": "rj_serenity",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 2,
     "authors": [
       "sitood",
@@ -25929,7 +25929,7 @@
   {
     "id": 262,
     "name": "rj_ante",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 4,
     "authors": [
       "dipp",
@@ -25997,7 +25997,7 @@
   {
     "id": 261,
     "name": "sj_zekro",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 5,
     "authors": [
       "Zike",
@@ -26022,7 +26022,7 @@
   {
     "id": 260,
     "name": "sj_super_redo",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 5,
     "authors": [
       "Superchuck"
@@ -26044,7 +26044,7 @@
   {
     "id": 259,
     "name": "rj_kestrel",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 5,
     "authors": [
       "Finn91",
@@ -26108,7 +26108,7 @@
   {
     "id": 258,
     "name": "rj_bear",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 5,
     "authors": [
       "HOI"
@@ -26140,7 +26140,7 @@
   {
     "id": 257,
     "name": "rj_observatory",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 5,
     "authors": [
       "Snowblind2"
@@ -26156,7 +26156,7 @@
   {
     "id": 256,
     "name": "conc_inaft",
-    "gamemode": "Tricks",
+    "gamemode": "Conc",
     "tier": 1,
     "authors": [
       "Kanin",
@@ -26325,7 +26325,7 @@
   {
     "id": 251,
     "name": "rj_zyma",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 5,
     "authors": [
       "False_",
@@ -26384,7 +26384,7 @@
   {
     "id": 248,
     "name": "rj_culvert",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 3,
     "authors": [
       "Needles",
@@ -26654,7 +26654,7 @@
   {
     "id": 229,
     "name": "rj_plexus",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 6,
     "authors": [
       "axios"
@@ -26769,7 +26769,7 @@
     "id": 220,
     "name": "conc_tyrant2",
     "gamemode": "Conc",
-    "tier": 3,
+    "tier": 4,
     "authors": [
       "Tyrant",
       "Zike",
@@ -26788,7 +26788,7 @@
   {
     "id": 219,
     "name": "conc_xab",
-    "gamemode": "Tricks",
+    "gamemode": "Conc",
     "tier": 6,
     "authors": [
       "Tyrant",
@@ -26809,7 +26809,7 @@
   {
     "id": 218,
     "name": "conc_exist",
-    "gamemode": "Tricks",
+    "gamemode": "Conc",
     "tier": 4,
     "authors": [
       "Myst^vi #Point of Impact",
@@ -26832,7 +26832,7 @@
   {
     "id": 216,
     "name": "rj_laevateinn",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 4,
     "authors": [
       "wickEd_"
@@ -26848,7 +26848,7 @@
   {
     "id": 212,
     "name": "kz_8b1_hellinashop",
-    "gamemode": "KZ",
+    "gamemode": "Tricks",
     "tier": 3,
     "authors": [
       "8ball1"
@@ -26913,7 +26913,7 @@
   {
     "id": 209,
     "name": "conc_vi3",
-    "gamemode": "Tricks",
+    "gamemode": "Conc",
     "tier": 4,
     "authors": [
       "Myst^vi #Point of Impact",
@@ -26939,7 +26939,7 @@
   {
     "id": 208,
     "name": "sj_rutabaga",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 5,
     "authors": [
       "osplo"
@@ -26966,7 +26966,7 @@
   {
     "id": 207,
     "name": "sj_lamia",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 5,
     "authors": [
       "Matty",
@@ -27072,7 +27072,7 @@
   {
     "id": 202,
     "name": "rj_urbex",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 3,
     "authors": [
       "Finn91"
@@ -27094,7 +27094,7 @@
   {
     "id": 201,
     "name": "rj_serica",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 4,
     "authors": [
       "Finn91"
@@ -27147,7 +27147,7 @@
   {
     "id": 199,
     "name": "rj_nyx",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 4,
     "authors": [
       "Finn91"
@@ -27163,7 +27163,7 @@
   {
     "id": 198,
     "name": "rj_cellulose",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 5,
     "authors": [
       "Dr. Spud",
@@ -27299,7 +27299,7 @@
     "id": 194,
     "name": "conc_vengeance",
     "gamemode": "Conc",
-    "tier": 5,
+    "tier": 6,
     "authors": [
       "VoiD",
       "Zike",
@@ -27374,7 +27374,7 @@
   {
     "id": 190,
     "name": "kz_ksz_fastmountain2",
-    "gamemode": "Ahop",
+    "gamemode": "1.6 KZ",
     "tier": 1,
     "authors": [
       "Keo"
@@ -27390,7 +27390,7 @@
   {
     "id": 189,
     "name": "rj_deserted",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 4,
     "authors": [
       "Rob123"
@@ -27427,7 +27427,7 @@
   {
     "id": 188,
     "name": "sj_lilith",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 5,
     "authors": [
       "myria"
@@ -27498,7 +27498,7 @@
     "id": 182,
     "name": "conc_xjs",
     "gamemode": "Conc",
-    "tier": 4,
+    "tier": 5,
     "authors": [
       "Madcow",
       "Tyrant",
@@ -27519,7 +27519,7 @@
     "id": 181,
     "name": "conc_eu",
     "gamemode": "Conc",
-    "tier": 3,
+    "tier": 2,
     "authors": [
       "[ConC]Renegade",
       "Lt. Llama",
@@ -27640,7 +27640,7 @@
   {
     "id": 177,
     "name": "kz_cargo",
-    "gamemode": "Sticky Jump",
+    "gamemode": "KZT",
     "tier": 2,
     "authors": [
       "eiRa"
@@ -27808,7 +27808,7 @@
   {
     "id": 169,
     "name": "kz_cg_beginner",
-    "gamemode": "Sticky Jump",
+    "gamemode": "1.6 KZ",
     "tier": 1,
     "authors": [
       "inSaNe"
@@ -27957,7 +27957,7 @@
   {
     "id": 164,
     "name": "df_dfwc2017-6",
-    "gamemode": "Bhop",
+    "gamemode": "Defrag",
     "tier": 1,
     "authors": [
       "noodles"
@@ -28112,8 +28112,8 @@
   {
     "id": 158,
     "name": "conc_ice",
-    "gamemode": "Parkour",
-    "tier": 6,
+    "gamemode": "Conc",
+    "tier": 3,
     "authors": [
       "Black][ce",
       "Tyrant",
@@ -28148,7 +28148,7 @@
   {
     "id": 156,
     "name": "conc_graffix2",
-    "gamemode": "Tricks",
+    "gamemode": "Conc",
     "tier": 2,
     "authors": [
       "graffix",
@@ -28172,7 +28172,7 @@
     "id": 155,
     "name": "conc_luna",
     "gamemode": "Conc",
-    "tier": 3,
+    "tier": 4,
     "authors": [
       "Zen",
       "Lunatik"
@@ -28194,7 +28194,7 @@
   {
     "id": 153,
     "name": "conc_rax",
-    "gamemode": "Tricks",
+    "gamemode": "Conc",
     "tier": 1,
     "authors": [
       "Rax",
@@ -28252,8 +28252,8 @@
   {
     "id": 149,
     "name": "df_yungstrafe08",
-    "gamemode": "Bhop",
-    "tier": 6,
+    "gamemode": "Defrag",
+    "tier": 3,
     "authors": [
       "Yunglenin"
     ],
@@ -28274,7 +28274,7 @@
   {
     "id": 148,
     "name": "conc_speed2",
-    "gamemode": "Tricks",
+    "gamemode": "Conc",
     "tier": 1,
     "authors": [
       "Koochy",
@@ -28309,7 +28309,7 @@
   {
     "id": 144,
     "name": "sj_iblis",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 4,
     "authors": [
       "Zike",
@@ -28420,7 +28420,7 @@
   {
     "id": 132,
     "name": "conc_xtc_r",
-    "gamemode": "Tricks",
+    "gamemode": "Conc",
     "tier": 4,
     "authors": [
       "Myst^vi #Point of Impact",
@@ -28518,7 +28518,7 @@
   {
     "id": 128,
     "name": "conc_ice2",
-    "gamemode": "Tricks",
+    "gamemode": "Conc",
     "tier": 3,
     "authors": [
       "Black][ce",
@@ -28550,7 +28550,7 @@
   {
     "id": 120,
     "name": "conc_impact",
-    "gamemode": "Tricks",
+    "gamemode": "Conc",
     "tier": 4,
     "authors": [
       "Myst^vi #Point of Impact",
@@ -28575,7 +28575,7 @@
   {
     "id": 119,
     "name": "conc_i10",
-    "gamemode": "Tricks",
+    "gamemode": "Conc",
     "tier": 2,
     "authors": [
       "Myst^vi #Point of Impact",
@@ -28605,7 +28605,7 @@
   {
     "id": 118,
     "name": "conc_flz",
-    "gamemode": "Tricks",
+    "gamemode": "Conc",
     "tier": 3,
     "authors": [
       "Myst^vi #Point of Impact",
@@ -28633,7 +28633,7 @@
   {
     "id": 117,
     "name": "conc_ice3_r",
-    "gamemode": "Tricks",
+    "gamemode": "Conc",
     "tier": 4,
     "authors": [
       "Myst^vi #Point of Impact",
@@ -28664,7 +28664,7 @@
   {
     "id": 116,
     "name": "conc_map8",
-    "gamemode": "Tricks",
+    "gamemode": "Conc",
     "tier": 2,
     "authors": [
       "Myst^vi #Point of Impact",
@@ -28690,7 +28690,7 @@
   {
     "id": 113,
     "name": "conc_xtc2",
-    "gamemode": "Tricks",
+    "gamemode": "Conc",
     "tier": 6,
     "authors": [
       "Myst^vi #Point of Impact",
@@ -28719,7 +28719,7 @@
   {
     "id": 112,
     "name": "conc_mvi",
-    "gamemode": "Tricks",
+    "gamemode": "Conc",
     "tier": 5,
     "authors": [
       "Myst^vi #Point of Impact",
@@ -28794,7 +28794,7 @@
   {
     "id": 107,
     "name": "jump_rush",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 1,
     "authors": [
       "Bob+M|M+"
@@ -28835,7 +28835,7 @@
   {
     "id": 105,
     "name": "ahop_castle",
-    "gamemode": "Defrag",
+    "gamemode": "Ahop",
     "tier": 2,
     "authors": [
       "corku"
@@ -28980,7 +28980,7 @@
   {
     "id": 100,
     "name": "conc_trojan7",
-    "gamemode": "Tricks",
+    "gamemode": "Conc",
     "tier": 4,
     "authors": [
       "Trojan",
@@ -29142,7 +29142,7 @@
   {
     "id": 87,
     "name": "rj_sanctuary",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 6,
     "authors": [
       "Hass",
@@ -29167,7 +29167,7 @@
   {
     "id": 86,
     "name": "sj_mad",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 5,
     "authors": [
       "Zike",
@@ -29213,7 +29213,7 @@
   {
     "id": 85,
     "name": "sj_neptune",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 5,
     "authors": [
       "Gorge004",
@@ -29234,7 +29234,7 @@
   {
     "id": 84,
     "name": "sj_raina",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 4,
     "authors": [
       "tx_",
@@ -29312,7 +29312,7 @@
   {
     "id": 81,
     "name": "ahop_coast",
-    "gamemode": "Bhop",
+    "gamemode": "Ahop",
     "tier": 1,
     "authors": [
       "waezone",
@@ -29331,7 +29331,7 @@
   {
     "id": 80,
     "name": "sj_homie",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 5,
     "authors": [
       "Raina"
@@ -29347,7 +29347,7 @@
   {
     "id": 79,
     "name": "rj_owakare",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 6,
     "authors": [
       "toss"
@@ -29489,7 +29489,7 @@
   {
     "id": 67,
     "name": "rj_eons",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 2,
     "authors": [
       "obsidiian"
@@ -29505,7 +29505,7 @@
   {
     "id": 65,
     "name": "rj_finite",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 5,
     "authors": [
       "Torii"
@@ -30090,7 +30090,7 @@
   {
     "id": 40,
     "name": "sj_icaro",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 7,
     "authors": [
       "Kolo",
@@ -30111,7 +30111,7 @@
   {
     "id": 39,
     "name": "sj_spark",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 2,
     "authors": [
       "sitood"
@@ -30127,7 +30127,7 @@
   {
     "id": 38,
     "name": "rj_arctic",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 3,
     "authors": [
       "squanchy"
@@ -30171,7 +30171,7 @@
     "id": 36,
     "name": "conc_pyxis",
     "gamemode": "Conc",
-    "tier": 2,
+    "tier": 4,
     "authors": [
       "Kolo",
       "Mac",
@@ -30191,7 +30191,7 @@
   {
     "id": 34,
     "name": "sj_twelve",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 4,
     "authors": [
       "tx_"
@@ -30213,7 +30213,7 @@
   {
     "id": 32,
     "name": "rj_toxic",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 3,
     "authors": [
       "tx_"
@@ -30267,7 +30267,7 @@
   {
     "id": 28,
     "name": "conc_ceres",
-    "gamemode": "Tricks",
+    "gamemode": "Conc",
     "tier": 4,
     "authors": [
       "Mac"
@@ -30289,7 +30289,7 @@
   {
     "id": 27,
     "name": "ahop_orange",
-    "gamemode": "Defrag",
+    "gamemode": "Ahop",
     "tier": 2,
     "authors": [
       "Mac"
@@ -30321,7 +30321,7 @@
   {
     "id": 25,
     "name": "rj_summer",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 2,
     "authors": [
       "Mac"
@@ -30337,7 +30337,7 @@
   {
     "id": 24,
     "name": "rj_fifth",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 4,
     "authors": [
       "Mac"
@@ -30359,7 +30359,7 @@
   {
     "id": 23,
     "name": "sj_santorini",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 5,
     "authors": [
       "Natanxp2",
@@ -30382,7 +30382,7 @@
   {
     "id": 22,
     "name": "rj_valley",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 4,
     "authors": [
       "Mac"
@@ -30398,7 +30398,7 @@
   {
     "id": 21,
     "name": "rj_tartarus",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 4,
     "authors": [
       "Mac"
@@ -30430,7 +30430,7 @@
   {
     "id": 19,
     "name": "kz_bhop_goldhop",
-    "gamemode": "Ahop",
+    "gamemode": "1.6 KZ",
     "tier": 2,
     "authors": [
       "Sprite",
@@ -30448,7 +30448,7 @@
   {
     "id": 18,
     "name": "rj_beef",
-    "gamemode": "Parkour",
+    "gamemode": "Rocket Jump",
     "tier": 1,
     "authors": [
       "Bevo"
@@ -30486,7 +30486,7 @@
   {
     "id": 15,
     "name": "kz_cellblock",
-    "gamemode": "Ahop",
+    "gamemode": "1.6 KZ",
     "tier": 2,
     "authors": [
       "SoUlFaThEr",
@@ -30563,7 +30563,7 @@
   {
     "id": 9,
     "name": "sj_lume",
-    "gamemode": "Conc",
+    "gamemode": "Sticky Jump",
     "tier": 5,
     "authors": [
       "Kolo",

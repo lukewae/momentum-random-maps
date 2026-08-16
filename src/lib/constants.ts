@@ -4,16 +4,17 @@ export const GAMEMODE_LIST: GameModeFilter[] = [
   'All',
   'Surf',
   'Bhop',
-  'KZ',
+  '1.6 KZ',
+  'KZT',
   'Rocket Jump',
   'Sticky Jump',
   'Ahop',
-  'Parkour',
   'Conc',
   'Defrag',
+  'Tricks',
 ];
 
-export function getGamemodeBadgeStyle(mode: string): { bg: string; text: string; border: string } {
+export function getGamemodeBadgeStyle(_mode: string): { bg: string; text: string; border: string } {
   return {
     bg: 'bg-neutral-900',
     text: 'text-neutral-200',
