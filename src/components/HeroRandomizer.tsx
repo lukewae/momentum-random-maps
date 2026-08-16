@@ -1001,16 +1001,6 @@ ${mapListText || '  (None)'}`;
                 )}
               </button>
 
-              {/* Open in Momentum (Steam Protocol) */}
-              <a
-                href={`steam://run/669270//+map%20${activeMap.name}`}
-                className="flex items-center justify-center gap-1.5 px-3 py-2 bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 hover:border-neutral-500 text-xs font-mono text-neutral-300 hover:text-white transition-colors"
-                title="Launch directly in Momentum Mod if map is already installed"
-              >
-                <Terminal className="w-3 h-3 text-neutral-400" />
-                <span>Open in Game</span>
-              </a>
-
               {/* View Dashboard */}
               <a
                 href={activeMap.dashboardUrl}
