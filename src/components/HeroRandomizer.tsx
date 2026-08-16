@@ -1012,19 +1012,6 @@ ${mapListText || '  (None)'}`;
                 <span>Dashboard</span>
                 <ExternalLink className="w-3 h-3 text-neutral-500" />
               </a>
-
-              {/* Normal Roll Again Button (when not in challenge) */}
-              {!challengeState.isActive && (
-                <button
-                  onClick={handleRoll}
-                  disabled={isRolling}
-                  className="p-2 bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 hover:border-neutral-500 text-neutral-300 hover:text-white transition-colors cursor-pointer"
-                  title="Roll another"
-                  aria-label="Roll another"
-                >
-                  <RotateCcw className={`w-3.5 h-3.5 ${isRolling ? 'animate-spin' : ''}`} />
-                </button>
-              )}
             </div>
           </div>
         </div>
