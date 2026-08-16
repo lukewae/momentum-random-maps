@@ -1,4 +1,4 @@
-// Web Audio API synthesizer for tactile gaming UI sounds (no external audio assets required)
+// Web Audio API synthesizer for clean, subtle UI sound effects
 
 class SoundFX {
   private ctx: AudioContext | null = null;
@@ -16,7 +16,9 @@ class SoundFX {
   private initCtx() {
     if (typeof window === 'undefined') return null;
     if (!this.ctx) {
-      const AudioContextClass = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+      const AudioContextClass =
+        window.AudioContext ||
+        (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
       if (AudioContextClass) {
         this.ctx = new AudioContextClass();
       }
@@ -37,7 +39,7 @@ class SoundFX {
       localStorage.setItem('mm_sound_muted', String(this.muted));
     }
     if (!this.muted) {
-      this.playBlip(520, 0.05, 'sine');
+      this.playBlip(520, 0.04);
     }
     return this.muted;
   }
@@ -52,46 +54,46 @@ class SoundFX {
       const osc = ctx.createOscillator();
       const gain = ctx.createGain();
 
-      osc.type = 'triangle';
-      const freq = 400 + Math.random() * 200 * pitchMultiplier;
+      osc.type = 'sine';
+      const freq = 450 + Math.random() * 150 * pitchMultiplier;
       osc.frequency.setValueAtTime(freq, ctx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(80, ctx.currentTime + 0.03);
+      osc.frequency.exponentialRampToValueAtTime(120, ctx.currentTime + 0.025);
 
-      gain.gain.setValueAtTime(0.12, ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.03);
+      gain.gain.setValueAtTime(0.08, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.025);
 
       osc.connect(gain);
       gain.connect(ctx.destination);
 
       osc.start();
-      osc.stop(ctx.currentTime + 0.03);
+      osc.stop(ctx.currentTime + 0.025);
     } catch {
-      // Ignore audio failure
+      // Ignore
     }
   }
 
-  // Neon lock / Winner sound when roll lands
-  public playLockWinner(isHighTier = false) {
+  // Subtle clean chime when roll lands (pure gentle sine waves, no harsh sawtooth)
+  public playLockWinner(_isHighTier = false) {
     if (this.muted) return;
     const ctx = this.initCtx();
     if (!ctx) return;
 
     try {
       const now = ctx.currentTime;
-      const notes = isHighTier ? [440, 554.37, 659.25, 880] : [392, 523.25, 659.25];
+      const notes = [440, 554.37, 659.25];
 
       notes.forEach((freq, i) => {
         const osc = ctx.createOscillator();
         const gain = ctx.createGain();
 
-        osc.type = isHighTier ? 'sawtooth' : 'sine';
-        osc.frequency.setValueAtTime(freq, now + i * 0.06);
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, now + i * 0.05);
 
-        const startTime = now + i * 0.06;
-        const duration = 0.28;
+        const startTime = now + i * 0.05;
+        const duration = 0.22;
 
         gain.gain.setValueAtTime(0, startTime);
-        gain.gain.linearRampToValueAtTime(0.15, startTime + 0.02);
+        gain.gain.linearRampToValueAtTime(0.08, startTime + 0.015);
         gain.gain.exponentialRampToValueAtTime(0.001, startTime + duration);
 
         osc.connect(gain);
@@ -101,12 +103,12 @@ class SoundFX {
         osc.stop(startTime + duration);
       });
     } catch {
-      // Ignore audio failure
+      // Ignore
     }
   }
 
-  // Quick button blip
-  public playBlip(freq = 440, duration = 0.05, type: OscillatorType = 'sine') {
+  // Soft button blip (strictly gentle sine wave)
+  public playBlip(freq = 440, duration = 0.04, _type: OscillatorType = 'sine') {
     if (this.muted) return;
     const ctx = this.initCtx();
     if (!ctx) return;
@@ -115,9 +117,9 @@ class SoundFX {
       const osc = ctx.createOscillator();
       const gain = ctx.createGain();
 
-      osc.type = type;
+      osc.type = 'sine';
       osc.frequency.setValueAtTime(freq, ctx.currentTime);
-      gain.gain.setValueAtTime(0.1, ctx.currentTime);
+      gain.gain.setValueAtTime(0.06, ctx.currentTime);
       gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + duration);
 
       osc.connect(gain);
@@ -126,13 +128,13 @@ class SoundFX {
       osc.start();
       osc.stop(ctx.currentTime + duration);
     } catch {
-      // Ignore audio failure
+      // Ignore
     }
   }
 
-  // Console copy click
+  // Soft console copy sound
   public playCopySound() {
-    this.playBlip(780, 0.08, 'triangle');
+    this.playBlip(680, 0.05);
   }
 }
 
