@@ -22,17 +22,28 @@ import { CompletedChallengeMap, TimedChallengeState } from '@/types/challenge';
 import { GAMEMODE_LIST, getGamemodeBadgeStyle, getTierBadgeStyle } from '@/lib/constants';
 import { soundFx } from '@/lib/audio';
 import { TierRangeSlider } from '@/components/TierRangeSlider';
+import { LeaderboardModal } from '@/components/LeaderboardModal';
 
 interface HeroRandomizerProps {
   allMaps: MomentumMap[];
   selectedMap: MomentumMap | null;
   onSelectMap: (map: MomentumMap) => void;
+  isLeaderboardOpen?: boolean;
+  onCloseLeaderboard?: () => void;
+  onOpenLeaderboard?: () => void;
 }
 
 const STORAGE_KEY = 'mm_timed_challenge_state';
 const DURATION_OPTIONS = [15, 30, 45, 60] as const;
 
-export function HeroRandomizer({ allMaps, selectedMap, onSelectMap }: HeroRandomizerProps) {
+export function HeroRandomizer({
+  allMaps,
+  selectedMap,
+  onSelectMap,
+  isLeaderboardOpen = false,
+  onCloseLeaderboard,
+  onOpenLeaderboard,
+}: HeroRandomizerProps) {
   const [selectedModes, setSelectedModes] = useState<string[]>(['All']);
   const [tierRange, setTierRange] = useState<[number, number]>([1, 10]);
   const [isRolling, setIsRolling] = useState(false);
@@ -55,6 +66,12 @@ export function HeroRandomizer({ allMaps, selectedMap, onSelectMap }: HeroRandom
   const [showSummary, setShowSummary] = useState(false);
   const [copiedSummary, setCopiedSummary] = useState(false);
 
+  // Leaderboard submission state
+  const [runnerName, setRunnerName] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitResult, setSubmitResult] = useState<{ success: boolean; rank?: number } | null>(null);
+  const [internalLeaderboardOpen, setInternalLeaderboardOpen] = useState(false);
+
   const rollIntervalRef = useRef<NodeJS.Timeout | null>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -65,7 +82,7 @@ export function HeroRandomizer({ allMaps, selectedMap, onSelectMap }: HeroRandom
     }
   }, [selectedMap, isRolling]);
 
-  // Restore active challenge from localStorage on mount
+  // Restore state from localStorage
   useEffect(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
@@ -75,9 +92,9 @@ export function HeroRandomizer({ allMaps, selectedMap, onSelectMap }: HeroRandom
           setChallengeState(parsed);
         }
       }
-    } catch {
-      // Ignore
-    }
+      const savedRunner = localStorage.getItem('mm_runner_name');
+      if (savedRunner) setRunnerName(savedRunner);
+    } catch {}
   }, []);
 
   // Save challenge state to localStorage
@@ -88,9 +105,7 @@ export function HeroRandomizer({ allMaps, selectedMap, onSelectMap }: HeroRandom
       } else {
         localStorage.removeItem(STORAGE_KEY);
       }
-    } catch {
-      // Ignore
-    }
+    } catch {}
   }, [challengeState]);
 
   // Timer interval for Challenge Mode
@@ -258,7 +273,6 @@ export function HeroRandomizer({ allMaps, selectedMap, onSelectMap }: HeroRandom
 
   // Start Challenge
   const handleStartChallenge = () => {
-    soundFx.playBlip(600, 0.05, 'triangle');
     const totalSeconds = selectedDuration * 60;
     setChallengeState({
       isActive: true,
@@ -270,6 +284,7 @@ export function HeroRandomizer({ allMaps, selectedMap, onSelectMap }: HeroRandom
       currentMapStartTime: Date.now(),
     });
     setShowSummary(false);
+    setSubmitResult(null);
     handleRoll();
   };
 
@@ -332,6 +347,37 @@ export function HeroRandomizer({ allMaps, selectedMap, onSelectMap }: HeroRandom
       currentMapStartTime: Date.now(),
     });
     setShowSummary(false);
+    setSubmitResult(null);
+  };
+
+  // Submit score to Leaderboard
+  const handleSubmitScore = async () => {
+    if (!runnerName.trim()) return;
+    setIsSubmitting(true);
+    try {
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('mm_runner_name', runnerName.trim());
+      }
+      const res = await fetch('/api/leaderboard', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          runnerName: runnerName.trim(),
+          durationMinutes: challengeState.durationMinutes,
+          skippedCount: challengeState.skippedCount,
+          maps: challengeState.completedMaps.map((c) => ({
+            name: c.map.name,
+            mode: c.map.gamemode,
+            tier: c.map.tier,
+            timeSeconds: c.durationSeconds,
+          })),
+        }),
+      });
+      const data = await res.json();
+      setSubmitResult({ success: true, rank: data.rank });
+      soundFx.playLockWinner(true);
+    } catch {}
+    setIsSubmitting(false);
   };
 
   const handleCopySummary = () => {
@@ -363,6 +409,12 @@ ${mapListText || '  (None)'}`;
   const gamemodeBadge = activeMap ? getGamemodeBadgeStyle(activeMap.gamemode) : null;
   const tierBadge = activeMap ? getTierBadgeStyle(activeMap.tier) : null;
   const filteredPoolCount = getFilteredPool().length;
+
+  const showLeaderboard = isLeaderboardOpen || internalLeaderboardOpen;
+  const closeLeaderboard = () => {
+    if (onCloseLeaderboard) onCloseLeaderboard();
+    setInternalLeaderboardOpen(false);
+  };
 
   return (
     <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-8">
@@ -734,9 +786,9 @@ ${mapListText || '  (None)'}`;
         </div>
       )}
 
-      {/* Challenge Completion Summary Modal */}
+      {/* Challenge Completion Summary Modal with Simple Score Submit */}
       {showSummary && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm select-none">
           <div className="w-full max-w-lg bg-[#111111] border border-neutral-700 p-6 flex flex-col gap-5 shadow-2xl">
             
             {/* Modal Header */}
@@ -776,7 +828,7 @@ ${mapListText || '  (None)'}`;
             </div>
 
             {/* List of Beaten Maps */}
-            <div className="flex flex-col gap-1.5 max-h-48 overflow-y-auto pr-1">
+            <div className="flex flex-col gap-1.5 max-h-36 overflow-y-auto pr-1">
               <div className="text-[11px] font-mono uppercase text-neutral-400">
                 Completed Map Log:
               </div>
@@ -808,9 +860,50 @@ ${mapListText || '  (None)'}`;
               )}
             </div>
 
+            {/* Simple Leaderboard Submit Form */}
+            <div className="p-3 bg-neutral-950 border border-neutral-800 flex flex-col gap-2 font-mono">
+              <div className="text-xs font-bold text-white uppercase">Submit to Leaderboard</div>
+              {submitResult?.success ? (
+                <div className="text-xs text-white flex items-center justify-between">
+                  <span>✓ Submitted! Ranked #{submitResult.rank} on {challengeState.durationMinutes}m board.</span>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (onOpenLeaderboard) onOpenLeaderboard();
+                      else setInternalLeaderboardOpen(true);
+                    }}
+                    className="underline text-neutral-300 hover:text-white cursor-pointer"
+                  >
+                    View Board
+                  </button>
+                </div>
+              ) : (
+                <div className="flex items-center gap-2">
+                  <input
+                    type="text"
+                    value={runnerName}
+                    onChange={(e) => setRunnerName(e.target.value)}
+                    placeholder="Enter your name..."
+                    maxLength={20}
+                    disabled={isSubmitting}
+                    className="flex-1 px-3 py-1.5 bg-[#111111] border border-neutral-800 focus:border-white text-xs text-white placeholder-neutral-500 outline-none"
+                  />
+                  <button
+                    type="button"
+                    onClick={handleSubmitScore}
+                    disabled={isSubmitting || challengeState.completedMaps.length === 0}
+                    className="px-3 py-1.5 bg-white hover:bg-neutral-200 disabled:bg-neutral-800 disabled:text-neutral-500 text-black text-xs font-bold uppercase transition-colors cursor-pointer border border-white disabled:border-neutral-800"
+                  >
+                    {isSubmitting ? 'Saving...' : 'Submit'}
+                  </button>
+                </div>
+              )}
+            </div>
+
             {/* Modal Actions */}
             <div className="flex items-center gap-2 pt-2 border-t border-neutral-800">
               <button
+                type="button"
                 onClick={handleCopySummary}
                 className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 text-white text-xs font-mono font-bold transition-colors cursor-pointer"
               >
@@ -828,6 +921,7 @@ ${mapListText || '  (None)'}`;
               </button>
 
               <button
+                type="button"
                 onClick={handleResetChallenge}
                 className="flex items-center gap-1.5 px-4 py-2 bg-white hover:bg-neutral-200 text-black text-xs font-mono font-bold uppercase transition-colors cursor-pointer border border-white"
               >
@@ -838,6 +932,13 @@ ${mapListText || '  (None)'}`;
           </div>
         </div>
       )}
+
+      {/* Leaderboard Viewer Modal */}
+      <LeaderboardModal
+        isOpen={showLeaderboard}
+        onClose={closeLeaderboard}
+        initialDuration={challengeState.durationMinutes}
+      />
     </section>
   );
 }
