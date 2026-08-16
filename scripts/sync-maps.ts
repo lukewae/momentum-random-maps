@@ -12,10 +12,11 @@ interface ApiMapCredit {
 
 interface ApiLeaderboard {
   gamemode: number;
-  trackType: number;
+  trackType: number; // 0 = Main, 1 = Stage, 2 = Bonus
   trackNum: number;
   tier?: number | null;
   linear?: boolean | null;
+  type?: number; // 0 = Ranked, 1 = Unranked, 2 = Hidden
 }
 
 interface ApiMapItem {
@@ -73,6 +74,12 @@ function inferGamemode(name: string, apiGamemode?: number): string {
   return 'Other';
 }
 
+export interface MapBonus {
+  bonusNum: number;
+  tier: number | null;
+  isRanked: boolean;
+}
+
 export interface CleanMap {
   id: number;
   name: string;
@@ -84,10 +91,12 @@ export interface CleanMap {
   isLinear: boolean | null;
   releaseDate: string | null;
   dashboardUrl: string;
+  isRanked: boolean;
+  bonuses: MapBonus[];
 }
 
 async function syncMaps() {
-  console.log('🚀 Starting Momentum Mod map sync...');
+  console.log('🚀 Starting Momentum Mod map sync with Bonus tracks & Ranked flags...');
   const baseUrl = 'https://api.momentum-mod.org/v1/maps';
   const take = 100;
   let skip = 0;
@@ -116,10 +125,37 @@ async function syncMaps() {
       if (data.length === 0) break;
 
       for (const item of data) {
-        const primaryLb = item.leaderboards?.find((l) => l.trackNum === 1 && l.tier != null) || item.leaderboards?.[0];
+        const primaryLb =
+          item.leaderboards?.find((l) => l.trackType === 0 && l.trackNum === 1 && l.tier != null) ||
+          item.leaderboards?.find((l) => l.trackType === 0) ||
+          item.leaderboards?.[0];
+
         const gamemode = inferGamemode(item.name, primaryLb?.gamemode);
         const tier = primaryLb?.tier != null ? primaryLb.tier : null;
         
+        // Ranked status of main track
+        const isRanked = item.leaderboards?.some((l) => l.trackType === 0 && l.type === 0) ?? false;
+
+        // Parse Bonus tracks (trackType === 2)
+        const bonusMap = new Map<number, MapBonus>();
+        if (item.leaderboards && Array.isArray(item.leaderboards)) {
+          for (const lb of item.leaderboards) {
+            if (lb.trackType === 2 && lb.trackNum > 0) {
+              const existing = bonusMap.get(lb.trackNum);
+              // Prefer bonus record matching the primary gamemode or with non-null tier
+              if (!existing || (existing.tier == null && lb.tier != null)) {
+                bonusMap.set(lb.trackNum, {
+                  bonusNum: lb.trackNum,
+                  tier: lb.tier != null ? lb.tier : null,
+                  isRanked: lb.type === 0,
+                });
+              }
+            }
+          }
+        }
+
+        const bonuses = Array.from(bonusMap.values()).sort((a, b) => a.bonusNum - b.bonusNum);
+
         // Authors from credits
         const authors: string[] = [];
         if (item.credits && Array.isArray(item.credits)) {
@@ -130,8 +166,14 @@ async function syncMaps() {
           }
         }
 
-        const thumb = item.thumbnail?.large || item.thumbnail?.medium || item.thumbnail?.small ||
-          item.images?.[0]?.large || item.images?.[0]?.medium || item.images?.[0]?.small || '';
+        const thumb =
+          item.thumbnail?.large ||
+          item.thumbnail?.medium ||
+          item.thumbnail?.small ||
+          item.images?.[0]?.large ||
+          item.images?.[0]?.medium ||
+          item.images?.[0]?.small ||
+          '';
 
         const clean: CleanMap = {
           id: item.id,
@@ -144,6 +186,8 @@ async function syncMaps() {
           isLinear: primaryLb?.linear ?? null,
           releaseDate: item.info?.approvedDate || item.info?.creationDate || item.createdAt || null,
           dashboardUrl: `https://dashboard.momentum-mod.org/maps/${item.id}`,
+          isRanked,
+          bonuses,
         };
 
         allMaps.push(clean);
@@ -166,7 +210,7 @@ async function syncMaps() {
 
   const outPath = path.join(dataDir, 'maps.json');
   fs.writeFileSync(outPath, JSON.stringify(allMaps, null, 2), 'utf-8');
-  console.log(`💾 Saved clean map database to: ${outPath}`);
+  console.log(`💾 Saved updated map database with bonuses to: ${outPath}`);
 }
 
 syncMaps().catch((err) => {

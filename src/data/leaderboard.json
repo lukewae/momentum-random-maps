@@ -1,0 +1,18 @@
+[
+  {
+    "id": "run-1786898957559",
+    "runnerName": "bruh",
+    "durationMinutes": 30,
+    "mapsBeaten": 1,
+    "skippedCount": 5,
+    "createdAt": "2026-08-16T16:49:17.559Z",
+    "maps": [
+      {
+        "name": "bhop_cherry",
+        "mode": "Bhop",
+        "tier": 2,
+        "timeSeconds": 2250
+      }
+    ]
+  }
+]

@@ -1,3 +1,9 @@
+export interface MapBonus {
+  bonusNum: number;
+  tier: number | null;
+  isRanked: boolean;
+}
+
 export interface MomentumMap {
   id: number;
   name: string;
@@ -9,6 +15,8 @@ export interface MomentumMap {
   isLinear: boolean | null;
   releaseDate: string | null;
   dashboardUrl: string;
+  isRanked: boolean;
+  bonuses: MapBonus[];
 }
 
 export type GameModeFilter =
@@ -22,13 +30,18 @@ export type GameModeFilter =
   | 'Parkour'
   | 'Conc'
   | 'Defrag'
+  | 'Tricks'
   | 'Other';
 
-export type TierFilter = 'all' | '1' | '2' | '3' | '4' | '5' | '6' | '7+';
+export type TrackTypeFilter = 'main' | 'all' | 'bonus_only';
+export type RankedFilter = 'all' | 'ranked' | 'unranked';
+export type SortOption = 'name-asc' | 'name-desc' | 'tier-asc' | 'tier-desc' | 'newest';
 
-export type SortOption =
-  | 'name-asc'
-  | 'name-desc'
-  | 'tier-asc'
-  | 'tier-desc'
-  | 'newest';
+export interface RollableItem {
+  map: MomentumMap;
+  isBonus: boolean;
+  bonusNum?: number;
+  effectiveTier: number | null;
+  effectiveRanked: boolean;
+  displayName: string;
+}

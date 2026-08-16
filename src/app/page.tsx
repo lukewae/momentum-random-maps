@@ -20,6 +20,8 @@ const fallbackMap: MomentumMap = {
   isLinear: false,
   releaseDate: null,
   dashboardUrl: 'https://dashboard.momentum-mod.org/maps',
+  isRanked: true,
+  bonuses: [],
 };
 
 export default function Home() {
