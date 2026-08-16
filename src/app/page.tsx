@@ -1,69 +1,100 @@
-import Image from "next/image";
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import rawMapsData from '@/data/maps.json';
+import { MomentumMap } from '@/types/map';
+import { Header } from '@/components/Header';
+import { HeroRandomizer } from '@/components/HeroRandomizer';
+import { MapList } from '@/components/MapList';
+import { Terminal, Keyboard, RefreshCw } from 'lucide-react';
+
+const mapsData = rawMapsData as MomentumMap[];
+
+const fallbackMap: MomentumMap = {
+  id: 0,
+  name: 'surf_beginner',
+  gamemode: 'Surf',
+  tier: 1,
+  authors: ['Momentum Team'],
+  thumbnail: '',
+  description: 'Welcome to Momentum Mod map picker.',
+  isLinear: false,
+  releaseDate: null,
+  dashboardUrl: 'https://dashboard.momentum-mod.org/maps',
+};
 
 export default function Home() {
+  // Deterministic initial state for SSR/client match
+  const [selectedMap, setSelectedMap] = useState<MomentumMap>(mapsData[0] || fallbackMap);
+
+  // Pick a random featured map on initial client mount without hydration mismatch
+  useEffect(() => {
+    if (mapsData.length > 0) {
+      const randomIndex = Math.floor(Math.random() * Math.min(mapsData.length, 50));
+      setSelectedMap(mapsData[randomIndex]);
+    }
+  }, []);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <div className="min-h-screen flex flex-col bg-[#0a0a0a] text-neutral-100 selection:bg-white selection:text-black">
+      {/* Top Navigation */}
+      <Header totalMaps={mapsData.length} />
+
+      {/* Main Content */}
+      <main className="flex-1 flex flex-col">
+        {/* Hero Randomizer Section */}
+        <HeroRandomizer
+          allMaps={mapsData}
+          selectedMap={selectedMap}
+          onSelectMap={setSelectedMap}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+
+        {/* Tips Bar */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-2 p-3 bg-[#111111] border border-neutral-800 text-xs font-mono text-neutral-400">
+            <div className="flex items-center gap-2">
+              <Keyboard className="w-3.5 h-3.5 text-neutral-500 flex-shrink-0" />
+              <span>Press <kbd className="px-1 py-0.5 bg-neutral-900 border border-neutral-700 text-white font-bold">SPACE</kbd> or <kbd className="px-1 py-0.5 bg-neutral-900 border border-neutral-700 text-white font-bold">R</kbd> to roll instantly.</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Terminal className="w-3.5 h-3.5 text-neutral-500 flex-shrink-0" />
+              <span>Click <strong className="text-neutral-200">COPY COMMAND</strong> for the developer console.</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <RefreshCw className="w-3.5 h-3.5 text-neutral-500 flex-shrink-0" />
+              <span>Run <code className="text-neutral-300">npm run sync-maps</code> to update the local map list.</span>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+
+        {/* Map Explorer Section */}
+        <MapList
+          maps={mapsData}
+          selectedMap={selectedMap}
+          onSelectMap={setSelectedMap}
+        />
       </main>
+
+      {/* Footer */}
+      <footer className="border-t border-neutral-800 bg-[#080808] py-6 px-4 sm:px-6 lg:px-8 text-xs font-mono text-neutral-500">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div>
+            <span>Momentum Mod Map Picker — </span>
+            <a
+              href="https://momentum-mod.org"
+              target="_blank"
+              rel="noreferrer"
+              className="text-neutral-400 hover:text-white underline"
+            >
+              momentum-mod.org
+            </a>
+          </div>
+
+          <div className="text-neutral-600">
+            Local database • {mapsData.length.toLocaleString()} maps
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
