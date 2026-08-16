@@ -6,7 +6,6 @@ import { MomentumMap } from '@/types/map';
 import { Header } from '@/components/Header';
 import { HeroRandomizer } from '@/components/HeroRandomizer';
 import { MapList } from '@/components/MapList';
-import { Terminal, Keyboard, RefreshCw } from 'lucide-react';
 
 const mapsData = rawMapsData as MomentumMap[];
 
@@ -48,24 +47,6 @@ export default function Home() {
           selectedMap={selectedMap}
           onSelectMap={setSelectedMap}
         />
-
-        {/* Tips Bar */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-2 p-3 bg-[#111111] border border-neutral-800 text-xs font-mono text-neutral-400">
-            <div className="flex items-center gap-2">
-              <Keyboard className="w-3.5 h-3.5 text-neutral-500 flex-shrink-0" />
-              <span>Press <kbd className="px-1 py-0.5 bg-neutral-900 border border-neutral-700 text-white font-bold">SPACE</kbd> or <kbd className="px-1 py-0.5 bg-neutral-900 border border-neutral-700 text-white font-bold">R</kbd> to roll instantly.</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Terminal className="w-3.5 h-3.5 text-neutral-500 flex-shrink-0" />
-              <span>Click <strong className="text-neutral-200">COPY COMMAND</strong> for the developer console.</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <RefreshCw className="w-3.5 h-3.5 text-neutral-500 flex-shrink-0" />
-              <span>Run <code className="text-neutral-300">npm run sync-maps</code> to update the local map list.</span>
-            </div>
-          </div>
-        </div>
 
         {/* Map Explorer Section */}
         <MapList
