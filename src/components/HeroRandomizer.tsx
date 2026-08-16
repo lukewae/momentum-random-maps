@@ -15,6 +15,7 @@ import { MomentumMap, GameModeFilter } from '@/types/map';
 import { GAMEMODE_LIST, getGamemodeBadgeStyle, getTierBadgeStyle } from '@/lib/constants';
 import { soundFx } from '@/lib/audio';
 import { TierRangeSlider } from '@/components/TierRangeSlider';
+import { TimedChallenge } from '@/components/TimedChallenge';
 
 interface HeroRandomizerProps {
   allMaps: MomentumMap[];
@@ -168,6 +169,9 @@ export function HeroRandomizer({ allMaps, selectedMap, onSelectMap }: HeroRandom
 
   return (
     <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-8">
+      {/* Timed Challenge Mode Drawer */}
+      <TimedChallenge currentMap={activeMap} onRollNext={handleRoll} />
+
       {/* Control Deck: Gamemode & Tier Selection */}
       <div className="mb-6 p-4 bg-[#111111] border border-neutral-800">
         <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6">
