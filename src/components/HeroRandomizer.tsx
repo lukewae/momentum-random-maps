@@ -183,7 +183,6 @@ export function HeroRandomizer({ allMaps, selectedMap, onSelectMap }: HeroRandom
     }
 
     setIsRolling(true);
-    soundFx.playBlip(320, 0.05, 'triangle');
 
     const chosenIndex = Math.floor(Math.random() * pool.length);
     const chosenMap = pool[chosenIndex];
