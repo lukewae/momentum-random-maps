@@ -16,6 +16,20 @@ export const metadata: Metadata = {
   title: 'Momentum Mod Map Roulette',
   description:
     'Pick a random Momentum Mod map instantly with mode filters, difficulty tiers, console command copies, and a full speedrun map archive.',
+  openGraph: {
+    title: 'Momentum Mod Map Roulette',
+    description:
+      'Pick a random Momentum Mod map instantly with mode filters, difficulty tiers, console command copies, and a full speedrun map archive.',
+    url: 'https://momentum-random-maps.vercel.app',
+    siteName: 'Momentum Mod Map Roulette',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Momentum Mod Map Roulette',
+    description:
+      'Pick a random Momentum Mod map instantly with mode filters, difficulty tiers, console command copies, and a full speedrun map archive.',
+  },
   keywords: [
     'Momentum Mod',
     'Random Map',
