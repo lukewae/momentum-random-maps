@@ -10,18 +10,27 @@ import {
   SlidersHorizontal,
   Terminal,
   User,
+  Timer,
+  Play,
+  Pause,
+  SkipForward,
+  Trophy,
+  X,
 } from 'lucide-react';
 import { MomentumMap, GameModeFilter } from '@/types/map';
+import { CompletedChallengeMap, TimedChallengeState } from '@/types/challenge';
 import { GAMEMODE_LIST, getGamemodeBadgeStyle, getTierBadgeStyle } from '@/lib/constants';
 import { soundFx } from '@/lib/audio';
 import { TierRangeSlider } from '@/components/TierRangeSlider';
-import { TimedChallenge } from '@/components/TimedChallenge';
 
 interface HeroRandomizerProps {
   allMaps: MomentumMap[];
   selectedMap: MomentumMap | null;
   onSelectMap: (map: MomentumMap) => void;
 }
+
+const STORAGE_KEY = 'mm_timed_challenge_state';
+const DURATION_OPTIONS = [15, 30, 45, 60] as const;
 
 export function HeroRandomizer({ allMaps, selectedMap, onSelectMap }: HeroRandomizerProps) {
   const [selectedModes, setSelectedModes] = useState<string[]>(['All']);
@@ -32,7 +41,22 @@ export function HeroRandomizer({ allMaps, selectedMap, onSelectMap }: HeroRandom
   const [copiedName, setCopiedName] = useState(false);
   const [rollCount, setRollCount] = useState(0);
 
+  // Timed Challenge State
+  const [selectedDuration, setSelectedDuration] = useState<number>(30);
+  const [challengeState, setChallengeState] = useState<TimedChallengeState>({
+    isActive: false,
+    isPaused: false,
+    durationMinutes: 30,
+    timeRemainingSeconds: 30 * 60,
+    completedMaps: [],
+    skippedCount: 0,
+    currentMapStartTime: Date.now(),
+  });
+  const [showSummary, setShowSummary] = useState(false);
+  const [copiedSummary, setCopiedSummary] = useState(false);
+
   const rollIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   // Sync display map when selectedMap changes
   useEffect(() => {
@@ -40,6 +64,64 @@ export function HeroRandomizer({ allMaps, selectedMap, onSelectMap }: HeroRandom
       setRollingDisplayMap(selectedMap);
     }
   }, [selectedMap, isRolling]);
+
+  // Restore active challenge from localStorage on mount
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        const parsed: TimedChallengeState = JSON.parse(saved);
+        if (parsed.isActive) {
+          setChallengeState(parsed);
+        }
+      }
+    } catch {
+      // Ignore
+    }
+  }, []);
+
+  // Save challenge state to localStorage
+  useEffect(() => {
+    try {
+      if (challengeState.isActive) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(challengeState));
+      } else {
+        localStorage.removeItem(STORAGE_KEY);
+      }
+    } catch {
+      // Ignore
+    }
+  }, [challengeState]);
+
+  // Timer interval for Challenge Mode
+  useEffect(() => {
+    if (challengeState.isActive && !challengeState.isPaused) {
+      timerRef.current = setInterval(() => {
+        setChallengeState((prev) => {
+          if (prev.timeRemainingSeconds <= 1) {
+            if (timerRef.current) clearInterval(timerRef.current);
+            soundFx.playLockWinner(true);
+            setShowSummary(true);
+            return {
+              ...prev,
+              isActive: false,
+              timeRemainingSeconds: 0,
+            };
+          }
+          return {
+            ...prev,
+            timeRemainingSeconds: prev.timeRemainingSeconds - 1,
+          };
+        });
+      }, 1000);
+    } else {
+      if (timerRef.current) clearInterval(timerRef.current);
+    }
+
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [challengeState.isActive, challengeState.isPaused]);
 
   const isAllModes = selectedModes.includes('All') || selectedModes.length === 0;
 
@@ -81,7 +163,6 @@ export function HeroRandomizer({ allMaps, selectedMap, onSelectMap }: HeroRandom
         if (!matchesMode) return false;
       }
 
-      // Check Tier Range
       if (m.tier !== null) {
         if (m.tier < minT || m.tier > maxT) return false;
       }
@@ -97,7 +178,7 @@ export function HeroRandomizer({ allMaps, selectedMap, onSelectMap }: HeroRandom
     const pool = getFilteredPool();
     if (pool.length === 0) {
       const modeLabel = isAllModes ? 'all modes' : selectedModes.join(' / ');
-      alert(`No maps found for [${modeLabel}] in Tier ${tierRange[0]}–${tierRange[1]}. Try broadening your range!`);
+      alert(`No maps found for [${modeLabel}] in Tier ${tierRange[0]}–${tierRange[1]}. Try broadening filters.`);
       return;
     }
 
@@ -139,13 +220,17 @@ export function HeroRandomizer({ allMaps, selectedMap, onSelectMap }: HeroRandom
       }
       if (e.code === 'Space' || e.key.toLowerCase() === 'r') {
         e.preventDefault();
-        handleRoll();
+        if (challengeState.isActive) {
+          handleCompleteMap();
+        } else {
+          handleRoll();
+        }
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [handleRoll]);
+  }, [handleRoll, challengeState.isActive]);
 
   const copyConsoleCommand = (mapName: string) => {
     const cmd = `map ${mapName}`;
@@ -162,6 +247,119 @@ export function HeroRandomizer({ allMaps, selectedMap, onSelectMap }: HeroRandom
     setTimeout(() => setCopiedName(false), 2000);
   };
 
+  const formatTime = (totalSeconds: number) => {
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+    if (hours > 0) {
+      return `${hours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }
+    return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  };
+
+  // Start Challenge
+  const handleStartChallenge = () => {
+    soundFx.playBlip(600, 0.05, 'triangle');
+    const totalSeconds = selectedDuration * 60;
+    setChallengeState({
+      isActive: true,
+      isPaused: false,
+      durationMinutes: selectedDuration,
+      timeRemainingSeconds: totalSeconds,
+      completedMaps: [],
+      skippedCount: 0,
+      currentMapStartTime: Date.now(),
+    });
+    setShowSummary(false);
+    handleRoll();
+  };
+
+  // Complete current map & roll next
+  const handleCompleteMap = () => {
+    const activeCurrent = rollingDisplayMap || selectedMap || allMaps[0];
+    if (!activeCurrent) return;
+
+    soundFx.playLockWinner(true);
+    const now = Date.now();
+    const duration = Math.max(1, Math.round((now - challengeState.currentMapStartTime) / 1000));
+
+    const completedEntry: CompletedChallengeMap = {
+      map: activeCurrent,
+      durationSeconds: duration,
+      completedAt: new Date().toISOString(),
+    };
+
+    setChallengeState((prev) => ({
+      ...prev,
+      completedMaps: [...prev.completedMaps, completedEntry],
+      currentMapStartTime: Date.now(),
+    }));
+
+    handleRoll();
+  };
+
+  // Skip current map & roll next
+  const handleSkipMap = () => {
+    soundFx.playBlip(400, 0.04, 'sine');
+    setChallengeState((prev) => ({
+      ...prev,
+      skippedCount: prev.skippedCount + 1,
+      currentMapStartTime: Date.now(),
+    }));
+    handleRoll();
+  };
+
+  // End challenge
+  const handleEndChallenge = () => {
+    soundFx.playBlip(450, 0.03, 'sine');
+    setShowSummary(true);
+    setChallengeState((prev) => ({
+      ...prev,
+      isActive: false,
+      isPaused: false,
+    }));
+  };
+
+  // Reset challenge
+  const handleResetChallenge = () => {
+    soundFx.playBlip(400, 0.03, 'sine');
+    setChallengeState({
+      isActive: false,
+      isPaused: false,
+      durationMinutes: selectedDuration,
+      timeRemainingSeconds: selectedDuration * 60,
+      completedMaps: [],
+      skippedCount: 0,
+      currentMapStartTime: Date.now(),
+    });
+    setShowSummary(false);
+  };
+
+  const handleCopySummary = () => {
+    const timeSpent = challengeState.durationMinutes * 60 - challengeState.timeRemainingSeconds;
+    const minutesSpent = Math.max(1, Math.round(timeSpent / 60));
+
+    const mapListText = challengeState.completedMaps
+      .map(
+        (entry, idx) =>
+          `  ${idx + 1}. ${entry.map.name} (${entry.map.gamemode}${
+            entry.map.tier ? ` T${entry.map.tier}` : ''
+          }) - ${formatTime(entry.durationSeconds)}`
+      )
+      .join('\n');
+
+    const summary = `⚡ Momentum Mod ${challengeState.durationMinutes}m Challenge:
+🏁 Maps Beaten: ${challengeState.completedMaps.length} in ${minutesSpent} min
+⏭ Skipped: ${challengeState.skippedCount}
+🗺️ Log:
+${mapListText || '  (None)'}`;
+
+    navigator.clipboard.writeText(summary);
+    soundFx.playCopySound();
+    setCopiedSummary(true);
+    setTimeout(() => setCopiedSummary(false), 2000);
+  };
+
   const activeMap = rollingDisplayMap || allMaps[0];
   const gamemodeBadge = activeMap ? getGamemodeBadgeStyle(activeMap.gamemode) : null;
   const tierBadge = activeMap ? getTierBadgeStyle(activeMap.tier) : null;
@@ -169,11 +367,8 @@ export function HeroRandomizer({ allMaps, selectedMap, onSelectMap }: HeroRandom
 
   return (
     <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-8">
-      {/* Timed Challenge Mode Drawer */}
-      <TimedChallenge currentMap={activeMap} onRollNext={handleRoll} />
-
       {/* Control Deck: Gamemode & Tier Selection */}
-      <div className="mb-6 p-4 bg-[#111111] border border-neutral-800">
+      <div className="mb-4 p-4 bg-[#111111] border border-neutral-800">
         <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6">
           
           {/* Multi-Select Game Mode Filters */}
@@ -227,35 +422,152 @@ export function HeroRandomizer({ allMaps, selectedMap, onSelectMap }: HeroRandom
         </div>
       </div>
 
-      {/* Main Roll Action Button Bar */}
-      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 mb-6">
-        <button
-          onClick={handleRoll}
-          disabled={isRolling}
-          className={`flex-1 flex items-center justify-center gap-3 px-6 py-4 font-mono text-sm sm:text-base font-bold tracking-widest uppercase transition-colors cursor-pointer border ${
-            isRolling
-              ? 'bg-neutral-800 text-neutral-300 border-neutral-600'
-              : 'bg-white hover:bg-neutral-200 text-black border-white active:bg-neutral-300'
-          }`}
-        >
-          <span>{isRolling ? 'ROLLING...' : 'ROLL RANDOM MAP'}</span>
-          <span className="hidden md:inline-block px-2 py-0.5 text-xs font-mono font-normal tracking-normal border border-black/20 bg-black/5 text-black">
-            [SPACE] or [R]
-          </span>
-        </button>
+      {/* UNIFIED ACTION DECK: Normal Mode vs. Timed Challenge Mode */}
+      <div className="mb-6">
+        {!challengeState.isActive ? (
+          /* Normal State: Roll Button + Challenge Launcher Bar */
+          <div className="flex flex-col gap-2.5">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5">
+              {/* Main Roll Button */}
+              <button
+                onClick={handleRoll}
+                disabled={isRolling}
+                className={`flex-1 flex items-center justify-center gap-3 px-6 py-4 font-mono text-sm sm:text-base font-bold tracking-widest uppercase transition-colors cursor-pointer border ${
+                  isRolling
+                    ? 'bg-neutral-800 text-neutral-300 border-neutral-600'
+                    : 'bg-white hover:bg-neutral-200 text-black border-white active:bg-neutral-300'
+                }`}
+              >
+                <span>{isRolling ? 'ROLLING...' : 'ROLL RANDOM MAP'}</span>
+                <span className="hidden md:inline-block px-2 py-0.5 text-xs font-mono font-normal tracking-normal border border-black/20 bg-black/5 text-black">
+                  [SPACE] or [R]
+                </span>
+              </button>
 
-        {/* Status Counter */}
-        <div className="flex items-center justify-between sm:justify-start gap-3 text-xs font-mono text-neutral-400 px-4 py-4 bg-[#111111] border border-neutral-800 whitespace-nowrap">
-          <div>
-            <span className="text-white font-semibold">{filteredPoolCount.toLocaleString()}</span> maps in pool
+              {/* Status Counter */}
+              <div className="flex items-center justify-between sm:justify-start gap-3 text-xs font-mono text-neutral-400 px-4 py-4 bg-[#111111] border border-neutral-800 whitespace-nowrap">
+                <div>
+                  <span className="text-white font-semibold">{filteredPoolCount.toLocaleString()}</span> maps in pool
+                </div>
+                {rollCount > 0 && (
+                  <>
+                    <span className="text-neutral-700">|</span>
+                    <span className="text-neutral-300">{rollCount} rolled</span>
+                  </>
+                )}
+              </div>
+            </div>
+
+            {/* Seamless Challenge Launcher Strip */}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 p-2.5 bg-[#0f0f0f] border border-neutral-800 text-xs font-mono">
+              <div className="flex items-center gap-2 text-neutral-400">
+                <Timer className="w-4 h-4 text-neutral-400" />
+                <span className="uppercase text-neutral-300 font-bold">Timed Challenge:</span>
+                <span className="text-neutral-500 hidden md:inline">Beat as many rolled maps as possible in:</span>
+              </div>
+
+              <div className="flex items-center gap-2 w-full sm:w-auto">
+                <div className="flex items-center gap-1 bg-neutral-950 p-0.5 border border-neutral-800">
+                  {DURATION_OPTIONS.map((mins) => (
+                    <button
+                      key={mins}
+                      onClick={() => {
+                        setSelectedDuration(mins);
+                        soundFx.playBlip(520, 0.02, 'sine');
+                      }}
+                      className={`px-2 py-0.5 text-[11px] font-mono font-semibold transition-colors cursor-pointer ${
+                        selectedDuration === mins
+                          ? 'bg-white text-black font-bold'
+                          : 'text-neutral-400 hover:text-white'
+                      }`}
+                    >
+                      {mins}m
+                    </button>
+                  ))}
+                </div>
+
+                <button
+                  onClick={handleStartChallenge}
+                  className="flex-1 sm:flex-initial flex items-center justify-center gap-1.5 px-3 py-1 bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 hover:border-neutral-500 text-white text-xs font-mono font-bold uppercase transition-colors cursor-pointer"
+                >
+                  <Play className="w-3 h-3 fill-white" />
+                  <span>Start {selectedDuration}m Challenge</span>
+                </button>
+              </div>
+            </div>
           </div>
-          {rollCount > 0 && (
-            <>
-              <span className="text-neutral-700">|</span>
-              <span className="text-neutral-300">{rollCount} rolled</span>
-            </>
-          )}
-        </div>
+        ) : (
+          /* Active Challenge Mode: The Action Deck Directly Becomes The Challenge Control Center */
+          <div className="flex flex-col gap-2 p-3 bg-neutral-950 border border-white">
+            <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3">
+              
+              {/* Left: Live Countdown Timer & Status */}
+              <div className="flex items-center gap-3 bg-[#111111] p-3 border border-neutral-800">
+                <div className="flex flex-col">
+                  <div className="text-[10px] font-mono uppercase tracking-widest text-neutral-500">
+                    Challenge Clock ({challengeState.durationMinutes}m)
+                  </div>
+                  <div className="text-2xl sm:text-3xl font-mono font-bold text-white tracking-widest">
+                    {formatTime(challengeState.timeRemainingSeconds)}
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-1 ml-auto sm:ml-2">
+                  <button
+                    onClick={() => {
+                      soundFx.playBlip(500, 0.03, 'sine');
+                      setChallengeState((prev) => ({ ...prev, isPaused: !prev.isPaused }));
+                    }}
+                    className="p-2 bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 text-neutral-300 hover:text-white cursor-pointer"
+                    title={challengeState.isPaused ? 'Resume Run' : 'Pause Run'}
+                  >
+                    {challengeState.isPaused ? <Play className="w-3.5 h-3.5 fill-current" /> : <Pause className="w-3.5 h-3.5" />}
+                  </button>
+                </div>
+              </div>
+
+              {/* Center: Primary Challenge Action: COMPLETE & ROLL NEXT */}
+              <button
+                onClick={handleCompleteMap}
+                disabled={isRolling}
+                className="flex-1 flex items-center justify-center gap-3 px-6 py-4 bg-white hover:bg-neutral-200 text-black font-mono text-sm sm:text-base font-bold tracking-widest uppercase transition-colors cursor-pointer border border-white active:bg-neutral-300"
+              >
+                <Check className="w-5 h-5" />
+                <span>{isRolling ? 'ROLLING NEXT...' : 'MAP BEATEN → ROLL NEXT'}</span>
+                <span className="hidden md:inline-block px-2 py-0.5 text-xs font-mono font-normal border border-black/20 bg-black/5 text-black">
+                  [SPACE]
+                </span>
+              </button>
+
+              {/* Right: Score & Skip / End Controls */}
+              <div className="flex items-center justify-between lg:justify-end gap-2">
+                <div className="px-3 py-3 bg-[#111111] border border-neutral-800 text-xs font-mono text-neutral-400">
+                  <span>BEATEN: <strong className="text-white text-sm">{challengeState.completedMaps.length}</strong></span>
+                  <span className="text-neutral-700 mx-1.5">|</span>
+                  <span>SKIPPED: <span className="text-neutral-300">{challengeState.skippedCount}</span></span>
+                </div>
+
+                <button
+                  onClick={handleSkipMap}
+                  disabled={isRolling}
+                  className="flex items-center gap-1 px-3 py-3 bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 text-xs font-mono text-neutral-300 hover:text-white transition-colors cursor-pointer"
+                  title="Skip without adding to score"
+                >
+                  <SkipForward className="w-3.5 h-3.5" />
+                  <span>SKIP</span>
+                </button>
+
+                <button
+                  onClick={handleEndChallenge}
+                  className="px-3 py-3 bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 text-xs font-mono text-neutral-400 hover:text-white transition-colors cursor-pointer"
+                  title="Finish run & see summary"
+                >
+                  END
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Featured / Selected Map Card */}
@@ -406,15 +718,122 @@ export function HeroRandomizer({ allMaps, selectedMap, onSelectMap }: HeroRandom
                 <ExternalLink className="w-3 h-3 text-neutral-500" />
               </a>
 
-              {/* Reroll */}
+              {/* Normal Roll Again Button (when not in challenge) */}
+              {!challengeState.isActive && (
+                <button
+                  onClick={handleRoll}
+                  disabled={isRolling}
+                  className="p-2 bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 hover:border-neutral-500 text-neutral-300 hover:text-white transition-colors cursor-pointer"
+                  title="Roll another"
+                  aria-label="Roll another"
+                >
+                  <RotateCcw className={`w-3.5 h-3.5 ${isRolling ? 'animate-spin' : ''}`} />
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Challenge Completion Summary Modal */}
+      {showSummary && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm">
+          <div className="w-full max-w-lg bg-[#111111] border border-neutral-700 p-6 flex flex-col gap-5 shadow-2xl">
+            
+            {/* Modal Header */}
+            <div className="flex items-center justify-between border-b border-neutral-800 pb-3">
+              <div className="flex items-center gap-2 text-white font-mono font-bold text-base uppercase">
+                <Trophy className="w-5 h-5 text-white" />
+                <span>Challenge Summary</span>
+              </div>
               <button
-                onClick={handleRoll}
-                disabled={isRolling}
-                className="p-2 bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 hover:border-neutral-500 text-neutral-300 hover:text-white transition-colors cursor-pointer"
-                title="Roll another"
-                aria-label="Roll another"
+                onClick={() => setShowSummary(false)}
+                className="text-neutral-500 hover:text-white p-1 cursor-pointer"
               >
-                <RotateCcw className={`w-3.5 h-3.5 ${isRolling ? 'animate-spin' : ''}`} />
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Metrics */}
+            <div className="grid grid-cols-3 gap-2 text-center font-mono">
+              <div className="p-3 bg-neutral-950 border border-neutral-800">
+                <div className="text-2xl font-bold text-white">
+                  {challengeState.completedMaps.length}
+                </div>
+                <div className="text-[10px] text-neutral-500 uppercase">Maps Beaten</div>
+              </div>
+              <div className="p-3 bg-neutral-950 border border-neutral-800">
+                <div className="text-2xl font-bold text-white">
+                  {challengeState.skippedCount}
+                </div>
+                <div className="text-[10px] text-neutral-500 uppercase">Skipped</div>
+              </div>
+              <div className="p-3 bg-neutral-950 border border-neutral-800">
+                <div className="text-2xl font-bold text-white">
+                  {challengeState.durationMinutes}m
+                </div>
+                <div className="text-[10px] text-neutral-500 uppercase">Total Time</div>
+              </div>
+            </div>
+
+            {/* List of Beaten Maps */}
+            <div className="flex flex-col gap-1.5 max-h-48 overflow-y-auto pr-1">
+              <div className="text-[11px] font-mono uppercase text-neutral-400">
+                Completed Map Log:
+              </div>
+              {challengeState.completedMaps.length === 0 ? (
+                <div className="text-xs font-mono text-neutral-600 italic py-2">
+                  No maps completed in this session.
+                </div>
+              ) : (
+                challengeState.completedMaps.map((entry, idx) => (
+                  <div
+                    key={idx}
+                    className="flex items-center justify-between p-2 bg-neutral-950 border border-neutral-800 text-xs font-mono"
+                  >
+                    <div className="flex items-center gap-2 truncate">
+                      <span className="text-neutral-500">{idx + 1}.</span>
+                      <span className="text-white font-semibold truncate">
+                        {entry.map.name}
+                      </span>
+                      <span className="text-neutral-500 text-[10px]">
+                        ({entry.map.gamemode}
+                        {entry.map.tier ? ` • T${entry.map.tier}` : ''})
+                      </span>
+                    </div>
+                    <span className="text-neutral-400 ml-2">
+                      {formatTime(entry.durationSeconds)}
+                    </span>
+                  </div>
+                ))
+              )}
+            </div>
+
+            {/* Modal Actions */}
+            <div className="flex items-center gap-2 pt-2 border-t border-neutral-800">
+              <button
+                onClick={handleCopySummary}
+                className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 text-white text-xs font-mono font-bold transition-colors cursor-pointer"
+              >
+                {copiedSummary ? (
+                  <>
+                    <Check className="w-3.5 h-3.5" />
+                    <span>COPIED TO CLIPBOARD!</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-3.5 h-3.5" />
+                    <span>COPY RESULTS</span>
+                  </>
+                )}
+              </button>
+
+              <button
+                onClick={handleResetChallenge}
+                className="flex items-center gap-1.5 px-4 py-2 bg-white hover:bg-neutral-200 text-black text-xs font-mono font-bold uppercase transition-colors cursor-pointer border border-white"
+              >
+                <RotateCcw className="w-3.5 h-3.5" />
+                <span>NEW RUN</span>
               </button>
             </div>
           </div>
