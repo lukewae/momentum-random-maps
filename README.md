@@ -1,15 +1,23 @@
-# Momentum Mod Random Map Picker
+# Momentum Mod Map Roulette & Speedrun Hub
 
-A fast, minimalist web app for the Momentum Mod speedrunning community.
+A fast, minimalist web app for the **Momentum Mod** speedrunning community.
+
+🌐 **Live Website:** [https://momentum-random-maps.vercel.app](https://momentum-random-maps.vercel.app)
+
+---
 
 ## Features
 
-- **Random Map Picker** — Randomly selects maps with roulette animation, keyboard shortcuts, and copyable launch commands.
-- **Game Mode Filters** — Filter maps by Surf, Bhop, KZ, Rocket Jump, Sticky Jump, Ahop, Parkour, Conc, or Defrag.
-- **Tier Filter** — Filter maps from Tier 1–10 with a drag slider.
-- **Speedrun Rush** — Timed challenges for 15, 30, 45, or 60 minutes with a timer, score, and run summary.
-- **Offline** — 1,100+ maps stored locally with no database or runtime scraping.
-- **Map Rescan CLI** — Update the map list using Momentum Mod’s public API.
+- **Random Map Roulette** — Instant map picker with slot cycling, keyboard shortcuts (<kbd>SPACE</kbd> / <kbd>R</kbd>), and one-click map name copy.
+- **In-Game Bonus Tracks Support** — Full support for 540+ bonus tracks with individual tiers and interactive track selectors.
+- **Ranked vs. Unranked Filtering** — Toggle between All, Ranked, or Unranked maps.
+- **Accurate Gamemode Separation** — Dedicated filters for Surf, Bhop, 1.6 KZ, KZT, Rocket Jump, Sticky Jump, Conc, Defrag, Ahop, and Tricks.
+- **Tier 1–10 Slider** — Dual-thumb range slider for granular difficulty selection.
+- **Timed Speedrun Challenge** — 15m, 30m, 45m, and 60m challenges with live clock, scoring, run summaries, and leaderboard submission.
+- **Full Database Explorer** — Browse and search all 1,118+ maps with instant search and sort options.
+- **Pure Web Audio Synthesis** — Gentle, custom-synthesized sine-wave audio effects with zero audio asset latency.
+
+---
 
 ## Getting Started
 
@@ -18,13 +26,13 @@ A fast, minimalist web app for the Momentum Mod speedrunning community.
 npm install
 ```
 
-### 2. Run the Development Server
+### 2. Run Development Server
 ```bash
 npm run dev
 ```
-Open [http://localhost:3000](http://localhost:3000) with your browser.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### 3. Update Local Map Database
+### 3. Sync Maps from Momentum Mod API
 ```bash
 npm run sync-maps
 ```
@@ -35,8 +43,11 @@ npm run build
 npm run start
 ```
 
+---
+
 ## Tech Stack
-- [Next.js](https://nextjs.org/) (App Router, Turbopack)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Lucide React](https://lucide.dev/)
+- **Framework:** [Next.js](https://nextjs.org/) (App Router, Turbopack)
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Icons:** [Lucide React](https://lucide.dev/)
+- **Audio:** Web Audio API Pure Sine Synthesis
