@@ -6,19 +6,17 @@ Live Website: [https://momentum-random-maps.vercel.app](https://momentum-random-
 
 ---
 
-## Features
+## Key Features
 
-- **Random Map Roulette** — Instant map picker with slot cycling, keyboard shortcuts (<kbd>SPACE</kbd> / <kbd>R</kbd>), and one-click map name copy.
-- **In-Game Bonus Tracks Support** — Full support for 540+ bonus tracks with individual tiers and interactive track selectors.
-- **Ranked vs. Unranked Filtering** — Toggle between All, Ranked, or Unranked maps.
-- **Accurate Gamemode Separation** — Dedicated filters for Surf, Bhop, 1.6 KZ, KZT, Rocket Jump, Sticky Jump, Conc, Defrag, Ahop, and Tricks.
-- **Tier 1–10 Slider** — Dual-thumb range slider for granular difficulty selection.
-- **Timed Speedrun Challenge** — 15m, 30m, 45m, and 60m challenges with live clock, scoring, run summaries, and leaderboard submission.
-- **Full Database Explorer** — Browse and search all 1,118+ maps with instant search and sort options.
-- **Pure Web Audio Synthesis** — Gentle, custom-synthesized sine-wave audio effects with zero audio asset latency.
-
----
-
+* **Map Roulette:** Instant map picker with slot-machine cycling, quick copy, and keybinds (`Space` / `R`).
+* **Bonus Tracks:** Support for 540+ bonus tracks with independent tiers and selectors.
+* **Rank Toggles:** Filter by All, Ranked, or Unranked.
+* **Game Modes:** Full coverage for Surf, Bhop, 1.6 KZ, KZT, Rocket Jump, Sticky Jump, Conc, Defrag, Ahop, and Tricks.
+* **Tier Slider:** Dual-thumb filter covering Tiers 1 through 10.
+* **Speedrun Challenges:** 15m, 30m, 45m, and 60m timed runs with live tracking, summaries, and leaderboard submission.
+* **Map Database:** Complete catalog of all 1,118+ maps with instant search and sorting.
+* **Web Audio SFX:** Zero-latency sound effects synthesized in-browser via Web Audio API.
+  
 ## Getting Started
 
 ### 1. Install Dependencies
